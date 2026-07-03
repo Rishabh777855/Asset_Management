@@ -1,0 +1,1 @@
+namespace AssetManagementSystem.Infrastructure.Repositories;
