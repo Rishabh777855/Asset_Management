@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "AssetManagementSystem.Domain/1.0.0": {
+        "runtime": {
+          "AssetManagementSystem.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AssetManagementSystem.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

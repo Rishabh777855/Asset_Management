@@ -1,0 +1,16 @@
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\bin\Debug\net10.0\AssetManagementSystem.Application.deps.json
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\bin\Debug\net10.0\AssetManagementSystem.Application.dll
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\bin\Debug\net10.0\AssetManagementSystem.Application.pdb
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\bin\Debug\net10.0\AssetManagementSystem.Domain.dll
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\bin\Debug\net10.0\AssetManagementSystem.Domain.pdb
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\AssetManagementSystem.Application.csproj.AssemblyReference.cache
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\AssetManagementSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\AssetManagementSystem.Application.AssemblyInfoInputs.cache
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\AssetManagementSystem.Application.AssemblyInfo.cs
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\AssetManagementSystem.Application.csproj.CoreCompileInputs.cache
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\AssetManagementSystem.Application.sourcelink.json
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\AssetMan.35368708.Up2Date
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\AssetManagementSystem.Application.dll
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\refint\AssetManagementSystem.Application.dll
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\AssetManagementSystem.Application.pdb
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Application\obj\Debug\net10.0\ref\AssetManagementSystem.Application.dll
