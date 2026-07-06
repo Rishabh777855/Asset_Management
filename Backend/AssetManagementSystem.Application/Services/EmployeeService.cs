@@ -5,10 +5,7 @@ using AssetManagementSystem.Domain.Interfaces;
 
 namespace AssetManagementSystem.Application.Services;
 
-public class EmployeeService(
-    IEmployeeRepository employeeRepository,
-    IUnitOfWork unitOfWork)
-    : IEmployeeService
+public class EmployeeService(IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork) : IEmployeeService
 {
     public async Task<IEnumerable<EmployeeResponseDto>> GetAllEmployeesAsync()
     {

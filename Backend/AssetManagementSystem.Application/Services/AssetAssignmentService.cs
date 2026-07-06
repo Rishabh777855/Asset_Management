@@ -7,12 +7,7 @@ using AssetManagementSystem.Domain.Interfaces;
 
 namespace AssetManagementSystem.Application.Services;
 
-public class AssetAssignmentService(
-    IAssetRepository assetRepository,
-    IEmployeeRepository employeeRepository,
-    IAssetAssignmentRepository assignmentRepository,
-    IUnitOfWork unitOfWork)
-    : IAssetAssignmentService
+public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeRepository employeeRepository, IAssetAssignmentRepository assignmentRepository, IUnitOfWork unitOfWork) : IAssetAssignmentService
 {
     public async Task AssignAssetAsync(AssignAssetDto dto)
     {

@@ -6,7 +6,7 @@ using AssetManagementSystem.Domain.Interfaces;
 
 namespace AssetManagementSystem.Application.Services;
 
-public class AssetService(IAssetRepository assetRepository, IRepository<AssetCategory> categoryRepository, IUnitOfWork unitOfWork): IAssetService
+public class AssetService(IAssetRepository assetRepository, IRepository<AssetCategory> categoryRepository, IUnitOfWork unitOfWork) : IAssetService
 {
     public async Task<IEnumerable<AssetResponseDto>> GetAllAssetsAsync()
     {
@@ -23,7 +23,7 @@ public class AssetService(IAssetRepository assetRepository, IRepository<AssetCat
             return null;
 
         return AssetMapper.ToResponseDto(asset);
-    } 
+    }
 
     public async Task<IEnumerable<AssetResponseDto>> GetAvailableAssetsAsync()
     {
@@ -66,7 +66,7 @@ public class AssetService(IAssetRepository assetRepository, IRepository<AssetCat
 
         AssetMapper.UpdateEntity(dto, asset);
 
-       await assetRepository.UpdateAsync(asset);
+        await assetRepository.UpdateAsync(asset);
 
         await unitOfWork.SaveChangesAsync();
 

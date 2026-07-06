@@ -8,6 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AssetManagementSystem.Domain\AssetManagementSystem.Domain.csproj" />
+    <ProjectReference Include="..\AssetManagementSystem.Application\AssetManagementSystem.Application.csproj" />
+    <ProjectReference Include="..\AssetManagementSystem.Infrastructure\AssetManagementSystem.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
