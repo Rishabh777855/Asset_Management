@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj": {}
+    "d:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj": {}
   },
   "projects": {
     "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {
@@ -341,14 +341,14 @@
         }
       }
     },
-    "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj": {
+    "d:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj",
+        "projectUniqueName": "d:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj",
         "projectName": "AssetManagementSystem.Infrastructure",
-        "projectPath": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj",
+        "projectPath": "d:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Shrey Shah\\.nuget\\packages\\",
-        "outputPath": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\obj\\",
+        "outputPath": "d:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Shrey Shah\\AppData\\Roaming\\NuGet\\NuGet.Config",

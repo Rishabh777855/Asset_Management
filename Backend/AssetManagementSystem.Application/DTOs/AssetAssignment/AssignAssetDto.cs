@@ -6,7 +6,7 @@ public class AssignAssetDto
 
     public Guid EmployeeId { get; set; }
 
-    public DateTime AssignedDate { get; set; }
+    public DateOnly AssignedDate { get; set; }
 
     public string? Remarks { get; set; }
 }

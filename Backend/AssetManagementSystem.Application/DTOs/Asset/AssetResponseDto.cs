@@ -18,13 +18,15 @@ public class AssetResponseDto
 
     public string CategoryName { get; set; } = string.Empty;
 
-    public AssetStatus Status { get; set; }
+    //public AssetStatus Status { get; set; }
 
-    public DateTime PurchaseDate { get; set; }
+    public string Status { get; set; } = string.Empty;
+
+    public DateOnly PurchaseDate { get; set; }
 
     public decimal PurchasePrice { get; set; }
 
-    public DateTime WarrantyExpiryDate { get; set; }
+    public DateOnly WarrantyExpiryDate { get; set; }
 
     public string? Remarks { get; set; }
 }

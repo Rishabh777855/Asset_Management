@@ -20,11 +20,11 @@ public class Asset
 
     public required string SerialNumber { get; set; }
 
-    public DateTime PurchaseDate { get; set; }
+    public DateOnly PurchaseDate { get; set; }
 
     public decimal PurchasePrice { get; set; }
 
-    public DateTime WarrantyExpiryDate { get; set; }
+    public DateOnly WarrantyExpiryDate { get; set; }
 
     public AssetStatus Status { get; set; }
 

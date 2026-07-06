@@ -47,7 +47,7 @@ public static class AssetMapper
             PurchaseDate = asset.PurchaseDate,
             PurchasePrice = asset.PurchasePrice,
             WarrantyExpiryDate = asset.WarrantyExpiryDate,
-            Status = asset.Status,
+            Status = asset.Status.ToString(),
             Remarks = asset.Remarks
         };
     }
