@@ -12,9 +12,9 @@ public class AssetAssignment
     
     public Guid EmployeeId { get; set; }
     
-    public DateTime AssignedDate { get; set; }
+    public DateOnly AssignedDate { get; set; }
     
-    public DateTime? ReturnDate { get; set; }
+    public DateOnly? ReturnDate { get; set; }
     
     public AssignmentStatus Status { get; set; }
     
