@@ -1,0 +1,9 @@
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\AssetManagementSystem.API.csproj.AssemblyReference.cache
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\AssetManagementSystem.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\AssetManagementSystem.API.AssemblyInfoInputs.cache
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\AssetManagementSystem.API.AssemblyInfo.cs
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\AssetManagementSystem.API.csproj.CoreCompileInputs.cache
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\AssetManagementSystem.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\AssetManagementSystem.API.MvcApplicationPartsAssemblyInfo.cache
+D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\AssetManagementSystem.API.sourcelink.json

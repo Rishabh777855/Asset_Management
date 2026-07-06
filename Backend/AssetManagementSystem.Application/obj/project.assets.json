@@ -1,11 +1,30 @@
 {
   "version": 4,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "AssetManagementSystem.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/AssetManagementSystem.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AssetManagementSystem.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "AssetManagementSystem.Domain/1.0.0": {
+      "type": "project",
+      "path": "../AssetManagementSystem.Domain/AssetManagementSystem.Domain.csproj",
+      "msbuildProject": "../AssetManagementSystem.Domain/AssetManagementSystem.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "AssetManagementSystem.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\": {}
@@ -34,7 +53,11 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {
+              "projectPath": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
