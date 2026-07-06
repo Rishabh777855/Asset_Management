@@ -15,6 +15,5 @@ public interface IAssetService
     Task<AssetResponseDto> CreateAssetAsync(CreateAssetDto dto);
 
     Task<AssetResponseDto> UpdateAssetAsync(UpdateAssetDto dto);
-    
     Task DeleteAssetAsync(Guid id);
 }
