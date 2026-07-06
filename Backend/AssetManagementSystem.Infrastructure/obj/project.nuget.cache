@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "fHzxk/t08Eo=",
-  "success": false,
+  "dgSpecHash": "eFTGppdZj3M=",
+  "success": true,
   "projectFilePath": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
@@ -18,13 +18,13 @@
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.codeanalysis.workspaces.msbuild\\5.0.0\\microsoft.codeanalysis.workspaces.msbuild.5.0.0.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.data.sqlclient\\6.1.1\\microsoft.data.sqlclient.6.1.1.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\6.0.2\\microsoft.data.sqlclient.sni.runtime.6.0.2.nupkg.sha512",
-    "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.0\\microsoft.entityframeworkcore.10.0.0.nupkg.sha512",
-    "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.0\\microsoft.entityframeworkcore.abstractions.10.0.0.nupkg.sha512",
-    "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.0\\microsoft.entityframeworkcore.analyzers.10.0.0.nupkg.sha512",
+    "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.9\\microsoft.entityframeworkcore.10.0.9.nupkg.sha512",
+    "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.9\\microsoft.entityframeworkcore.abstractions.10.0.9.nupkg.sha512",
+    "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.9\\microsoft.entityframeworkcore.analyzers.10.0.9.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore.design\\10.0.9\\microsoft.entityframeworkcore.design.10.0.9.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.9\\microsoft.entityframeworkcore.relational.10.0.9.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\10.0.9\\microsoft.entityframeworkcore.sqlserver.10.0.9.nupkg.sha512",
-    "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\10.0.0\\microsoft.entityframeworkcore.tools.10.0.0.nupkg.sha512",
+    "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\10.0.9\\microsoft.entityframeworkcore.tools.10.0.9.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.9\\microsoft.extensions.caching.abstractions.10.0.9.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.9\\microsoft.extensions.caching.memory.10.0.9.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.9\\microsoft.extensions.configuration.abstractions.10.0.9.nupkg.sha512",
@@ -62,17 +62,5 @@
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.4\\system.security.cryptography.pkcs.9.0.4.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.4\\system.security.cryptography.protecteddata.9.0.4.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore from 10.0.9 to 10.0.0. Reference the package directly from the project to select a different version. \r\n AssetManagementSystem.Infrastructure -> Microsoft.EntityFrameworkCore.Design 10.0.9 -> Microsoft.EntityFrameworkCore.Relational 10.0.9 -> Microsoft.EntityFrameworkCore (>= 10.0.9) \r\n AssetManagementSystem.Infrastructure -> Microsoft.EntityFrameworkCore (>= 10.0.0)",
-      "projectPath": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj",
-      "filePath": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Infrastructure\\AssetManagementSystem.Infrastructure.csproj",
-      "libraryId": "Microsoft.EntityFrameworkCore",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }
