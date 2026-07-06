@@ -28,6 +28,14 @@ public class AssetController(IAssetService assetService) : ControllerBase
         return Ok(asset);
     }
 
+    [HttpGet("category/{categoryId:guid}")]
+    public async Task <IActionResult> GetAssetByCategory(Guid categoryId)
+    {
+       var asset = await assetService.GetAssetsByCategoryAsync(categoryId);
+
+       return Ok(asset);
+    }
+
 
     [HttpPost]
     public async Task <IActionResult> CreateAsset(CreateAssetDto createAssetDto)
