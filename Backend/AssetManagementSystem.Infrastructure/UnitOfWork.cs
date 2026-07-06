@@ -1,0 +1,10 @@
+using AssetManagementSystem.Domain.Interfaces;
+
+namespace AssetManagementSystem.Infrastructure;
+public class UnitOfWork(ApplicationDbContext context) : IUnitOfWork
+{
+    public async Task<int> SaveChangesAsync()
+    {
+        return await context.SaveChangesAsync();
+    }
+}

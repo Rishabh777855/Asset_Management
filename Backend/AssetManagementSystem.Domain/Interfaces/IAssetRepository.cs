@@ -2,11 +2,11 @@ using AssetManagementSystem.Domain.Entities;
 
 namespace AssetManagementSystem.Domain.Interfaces;
 
-public interface IAssetRepository<T> : IRepository<Asset>
+public interface IAssetRepository : IRepository<Asset>
 {
     Task<IEnumerable<Asset>> GetAvailableAssetsAsync();
 
     Task<IEnumerable<Asset>> GetAssetsByCategoryAsync(Guid categoryId);
 
-   // Task<Asset?> GetAssetWithCategoryAsync(Guid id);
+    Task<Asset?> GetAssetWithCategoryAsync(Guid id);
 }

@@ -8,5 +8,5 @@ public interface IEmployeeRepository : IRepository<Employee>
 
     Task<Employee?> GetEmployeeWithAssetsAsync(Guid employeeId);
 
-    // Task<bool> ExistsAsync(Guid employeeId);
+    Task<bool> ExistsAsync(Guid employeeId);
 }

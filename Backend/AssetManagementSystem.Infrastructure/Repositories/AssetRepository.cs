@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AssetManagementSystem.Infrastructure.Repositories;
 
-public class AssetRepository(ApplicationDbContext context) : Repository<Asset>(context), IAssetRepository<Asset>
+public class AssetRepository(ApplicationDbContext context) : Repository<Asset>(context), IAssetRepository
 {
     public async Task<IEnumerable<Asset>> GetAvailableAssetsAsync()
     {
@@ -19,6 +19,13 @@ public class AssetRepository(ApplicationDbContext context) : Repository<Asset>(c
         return await context.Assets
             .Where(a => a.AssetCategoryId == categoryId)
             .ToListAsync();
+    }
+
+    public async Task<Asset?> GetAssetWithCategoryAsync(Guid id)
+    {
+        return await context.Assets
+            .Include(a => a.AssetCategory)
+            .FirstOrDefaultAsync(a => a.Id == id);
     }
 }
 
