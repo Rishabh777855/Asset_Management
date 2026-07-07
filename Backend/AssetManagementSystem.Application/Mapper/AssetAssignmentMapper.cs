@@ -29,6 +29,7 @@ public static class AssetAssignmentMapper
             AssignedDate = assignment.AssignedDate,
             ReturnDate = assignment.ReturnDate,
             Status = assignment.Status,
+           // CategoryName = asset.AssetCategory.Name,
             Remarks = assignment.Remarks
         };
     }

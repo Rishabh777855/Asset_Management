@@ -8,9 +8,9 @@ namespace AssetManagementSystem.Application.Services;
 
 public class AssetService(IAssetRepository assetRepository, IRepository<AssetCategory> categoryRepository, IUnitOfWork unitOfWork) : IAssetService
 {
-    public async Task<IEnumerable<AssetResponseDto>> GetAllAssetsAsync()
+    public async Task<IEnumerable<AssetResponseDto>> GetAllAssetsWithCategoryAsync()
     {
-        var assets = await assetRepository.GetAllAsync();
+        var assets = await assetRepository.GetAllAssetsWithCategoryAsync();
 
         return assets.Select(AssetMapper.ToResponseDto);
     }

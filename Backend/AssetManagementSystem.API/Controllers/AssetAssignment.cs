@@ -25,5 +25,22 @@ public class AssetAssignmentController(IAssetAssignmentService assetAssignmentSe
         return Ok("Asset returned successfully");
     }
 
-    
+    [HttpGet("employee/{employeeId:guid}")]
+    public async Task<IActionResult> GetEmployeeAsset(Guid employeeId)
+    {
+        var asset = await assetAssignmentService.GetEmployeeAssetsAsync(employeeId);
+
+        return Ok(asset);
+    }
+
+     [HttpGet("current/{assetId:guid}")]
+    public async Task<IActionResult> GetCurrentAssignment(Guid assetId)
+    {
+        var assignment = await assetAssignmentService.GetCurrentAssignmentAsync(assetId);
+
+        if (assignment == null)
+            return NotFound();
+
+        return Ok(assignment);
+    }
 }

@@ -12,7 +12,7 @@ public class AssetController(IAssetService assetService) : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var assets = await assetService.GetAllAssetsAsync();
+        var assets = await assetService.GetAllAssetsWithCategoryAsync();
 
         return Ok(assets);
     }
@@ -46,7 +46,7 @@ public class AssetController(IAssetService assetService) : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
-    public async Task<IActionResult> UpdateAsset(Guid id,UpdateAssetDto updateAssetDto)
+    public async Task<IActionResult> UpdateAsset(Guid id, UpdateAssetDto updateAssetDto)
     {
         var asset = await assetService.UpdateAssetAsync(id, updateAssetDto);
 
