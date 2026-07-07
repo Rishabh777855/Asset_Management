@@ -6,7 +6,7 @@ namespace AssetManagementSystem.API.Controller;
 
 
 [ApiController]
-[Route("api/controller")]
+[Route("api/[controller]")]
 public class AssetController(IAssetService assetService) : ControllerBase
 {
     [HttpGet]
@@ -45,10 +45,10 @@ public class AssetController(IAssetService assetService) : ControllerBase
         return Ok(asset);
     }
 
-    [HttpPut]
-    public async Task<IActionResult> UpdateAsset(UpdateAssetDto updateAssetDto)
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> UpdateAsset(Guid id,UpdateAssetDto updateAssetDto)
     {
-        var asset = await assetService.UpdateAssetAsync(updateAssetDto);
+        var asset = await assetService.UpdateAssetAsync(id, updateAssetDto);
 
         return Ok(asset);
     }

@@ -10,7 +10,7 @@ public interface IEmployeeService
 
     Task CreateEmployeeAsync(CreateEmployeeDto dto);
 
-    Task UpdateEmployeeAsync(UpdateEmployeeDto dto);
+    Task UpdateEmployeeAsync(Guid id, UpdateEmployeeDto dto);
 
     Task DeleteEmployeeAsync(Guid id);
 }

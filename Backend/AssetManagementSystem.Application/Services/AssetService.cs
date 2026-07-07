@@ -57,9 +57,9 @@ public class AssetService(IAssetRepository assetRepository, IRepository<AssetCat
         return AssetMapper.ToResponseDto(asset);
     }
 
-    public async Task<AssetResponseDto> UpdateAssetAsync(UpdateAssetDto dto)
+    public async Task<AssetResponseDto> UpdateAssetAsync(Guid id, UpdateAssetDto dto)
     {
-        var asset = await assetRepository.GetByIdAsync(dto.Id);
+        var asset = await assetRepository.GetByIdAsync(id);
 
         if (asset == null)
             throw new Exception("Asset not found.");
