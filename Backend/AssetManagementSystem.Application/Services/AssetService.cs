@@ -8,9 +8,9 @@ namespace AssetManagementSystem.Application.Services;
 
 public class AssetService(IAssetRepository assetRepository, IRepository<AssetCategory> categoryRepository, IUnitOfWork unitOfWork) : IAssetService
 {
-    public async Task<IEnumerable<AssetResponseDto>> GetAllAssetsAsync()
+    public async Task<IEnumerable<AssetResponseDto>> GetAllAssetsWithCategoryAsync()
     {
-        var assets = await assetRepository.GetAllAsync();
+        var assets = await assetRepository.GetAllAssetsWithCategoryAsync();
 
         return assets.Select(AssetMapper.ToResponseDto);
     }
@@ -57,9 +57,9 @@ public class AssetService(IAssetRepository assetRepository, IRepository<AssetCat
         return AssetMapper.ToResponseDto(asset);
     }
 
-    public async Task<AssetResponseDto> UpdateAssetAsync(UpdateAssetDto dto)
+    public async Task<AssetResponseDto> UpdateAssetAsync(Guid id, UpdateAssetDto dto)
     {
-        var asset = await assetRepository.GetByIdAsync(dto.Id);
+        var asset = await assetRepository.GetByIdAsync(id);
 
         if (asset == null)
             throw new Exception("Asset not found.");

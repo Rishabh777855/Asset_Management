@@ -39,9 +39,9 @@ public class EmployeeService(IEmployeeRepository employeeRepository, IUnitOfWork
         await unitOfWork.SaveChangesAsync();
     }
 
-    public async Task UpdateEmployeeAsync(UpdateEmployeeDto dto)
+    public async Task UpdateEmployeeAsync(Guid id, UpdateEmployeeDto dto)
     {
-        var employee = await employeeRepository.GetByIdAsync(dto.Id);
+        var employee = await employeeRepository.GetByIdAsync(id);
 
         if (employee == null)
             throw new Exception("Employee not found.");

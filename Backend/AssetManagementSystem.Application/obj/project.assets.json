@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 3,
   "targets": {
     "net10.0": {
       "AssetManagementSystem.Domain/1.0.0": {
@@ -27,35 +27,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shrey Shah\\.nuget\\packages\\": {}
+    "C:\\Users\\kruti\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Application\\AssetManagementSystem.Application.csproj",
+      "projectUniqueName": "D:\\TenUp\\Asset_Management\\Backend\\AssetManagementSystem.Application\\AssetManagementSystem.Application.csproj",
       "projectName": "AssetManagementSystem.Application",
-      "projectPath": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Application\\AssetManagementSystem.Application.csproj",
-      "packagesPath": "C:\\Users\\Shrey Shah\\.nuget\\packages\\",
-      "outputPath": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Application\\obj\\",
+      "projectPath": "D:\\TenUp\\Asset_Management\\Backend\\AssetManagementSystem.Application\\AssetManagementSystem.Application.csproj",
+      "packagesPath": "C:\\Users\\kruti\\.nuget\\packages\\",
+      "outputPath": "D:\\TenUp\\Asset_Management\\Backend\\AssetManagementSystem.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Shrey Shah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\kruti\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {
-              "projectPath": "D:\\Rishabh\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj"
+            "D:\\TenUp\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {
+              "projectPath": "D:\\TenUp\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj"
             }
           }
         }
@@ -70,11 +67,10 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net10.0": {
-        "framework": "net10.0",
         "targetAlias": "net10.0",
         "imports": [
           "net461",
@@ -92,7 +88,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.109/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

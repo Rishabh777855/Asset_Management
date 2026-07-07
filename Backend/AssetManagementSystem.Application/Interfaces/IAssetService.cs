@@ -4,7 +4,7 @@ namespace AssetManagementSystem.Application.Interfaces;
 
 public interface IAssetService
 {
-    Task<IEnumerable<AssetResponseDto>> GetAllAssetsAsync();
+    Task<IEnumerable<AssetResponseDto>> GetAllAssetsWithCategoryAsync();
 
     Task<AssetResponseDto?> GetAssetByIdAsync(Guid id);
 
@@ -14,6 +14,7 @@ public interface IAssetService
 
     Task<AssetResponseDto> CreateAssetAsync(CreateAssetDto dto);
 
-    Task<AssetResponseDto> UpdateAssetAsync(UpdateAssetDto dto);
+    Task<AssetResponseDto> UpdateAssetAsync(Guid id, UpdateAssetDto dto);
+
     Task DeleteAssetAsync(Guid id);
 }

@@ -18,5 +18,7 @@ public class AssetAssignmentResponseDto
 
     public AssignmentStatus Status { get; set; }
 
+    public string CategoryName { get; set; } = string.Empty;
+
     public string? Remarks { get; set; }
 }
