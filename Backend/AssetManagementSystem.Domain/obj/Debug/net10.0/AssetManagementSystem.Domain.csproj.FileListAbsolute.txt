@@ -10,3 +10,15 @@ D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10
 D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\refint\AssetManagementSystem.Domain.dll
 D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\AssetManagementSystem.Domain.pdb
 D:\Rishabh\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\ref\AssetManagementSystem.Domain.dll
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\bin\Debug\net10.0\AssetManagementSystem.Domain.deps.json
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\bin\Debug\net10.0\AssetManagementSystem.Domain.dll
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\bin\Debug\net10.0\AssetManagementSystem.Domain.pdb
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\AssetManagementSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\AssetManagementSystem.Domain.AssemblyInfoInputs.cache
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\AssetManagementSystem.Domain.AssemblyInfo.cs
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\AssetManagementSystem.Domain.csproj.CoreCompileInputs.cache
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\AssetManagementSystem.Domain.sourcelink.json
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\AssetManagementSystem.Domain.dll
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\refint\AssetManagementSystem.Domain.dll
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\AssetManagementSystem.Domain.pdb
+D:\TenUp\Asset_Management\Backend\AssetManagementSystem.Domain\obj\Debug\net10.0\ref\AssetManagementSystem.Domain.dll

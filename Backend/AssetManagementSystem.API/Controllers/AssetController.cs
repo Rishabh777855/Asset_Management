@@ -10,7 +10,7 @@ namespace AssetManagementSystem.API.Controller;
 public class AssetController(IAssetService assetService) : ControllerBase
 {
     [HttpGet]
-    public async Task <IActionResult> GetAll()
+    public async Task<IActionResult> GetAll()
     {
         var assets = await assetService.GetAllAssetsAsync();
 
@@ -18,30 +18,46 @@ public class AssetController(IAssetService assetService) : ControllerBase
     }
 
     [HttpGet("{id:guid}")]
-    public async Task <IActionResult> GetAssetById(Guid id)
+    public async Task<IActionResult> GetAssetById(Guid id)
     {
         var asset = await assetService.GetAssetByIdAsync(id);
 
-        if(asset == null)
-          return NotFound();
+        if (asset == null)
+            return NotFound();
 
         return Ok(asset);
     }
 
     [HttpGet("category/{categoryId:guid}")]
-    public async Task <IActionResult> GetAssetByCategory(Guid categoryId)
+    public async Task<IActionResult> GetAssetByCategory(Guid categoryId)
     {
-       var asset = await assetService.GetAssetsByCategoryAsync(categoryId);
+        var asset = await assetService.GetAssetsByCategoryAsync(categoryId);
 
-       return Ok(asset);
+        return Ok(asset);
     }
 
 
     [HttpPost]
-    public async Task <IActionResult> CreateAsset(CreateAssetDto createAssetDto)
+    public async Task<IActionResult> CreateAsset(CreateAssetDto createAssetDto)
     {
         var asset = await assetService.CreateAssetAsync(createAssetDto);
 
         return Ok(asset);
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateAsset(UpdateAssetDto updateAssetDto)
+    {
+        var asset = await assetService.UpdateAssetAsync(updateAssetDto);
+
+        return Ok(asset);
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> DeleteAsset(Guid id)
+    {
+        await assetService.DeleteAssetAsync(id);
+
+        return NoContent();
     }
 }
