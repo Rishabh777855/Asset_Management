@@ -7,7 +7,7 @@ namespace AssetManagementSystem.API.Controller;
 [ApiController]
 [Route("api/[controller]")]
 
-public class EmployeeController(IEmployeeService employeeService) : ControllerBase
+public class EmployeeController(IEmployeeService employeeService, IAuthService authService) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> GetAllEmployees()
@@ -31,6 +31,17 @@ public class EmployeeController(IEmployeeService employeeService) : ControllerBa
         await employeeService.CreateEmployeeAsync(createEmployeeDto);
 
         return Ok("Employee Created Successfully");
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login(LoginDto loginDto)
+    {
+        var isAuthenticated = await authService.LoginAsync(loginDto);
+
+        if (!isAuthenticated)
+            return Unauthorized("Invalid email or password.");
+
+        return Ok("Login successful.");
     }
 
     [HttpPut("{id:guid}")]

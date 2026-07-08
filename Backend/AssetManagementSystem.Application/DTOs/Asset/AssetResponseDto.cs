@@ -1,5 +1,3 @@
-using AssetManagementSystem.Domain.Enums;
-
 namespace AssetManagementSystem.Application.DTOs.Asset;
 
 public class AssetResponseDto

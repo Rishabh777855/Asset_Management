@@ -1,4 +1,6 @@
 using AssetManagementSystem.Application.DTOs.Employee;
+using AssetManagementSystem.Application.Exceptions;
+using AssetManagementSystem.Application.Helper;
 using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Application.Mappers;
 using AssetManagementSystem.Domain.Interfaces;
@@ -27,12 +29,11 @@ public class EmployeeService(IEmployeeRepository employeeRepository, IUnitOfWork
     public async Task CreateEmployeeAsync(CreateEmployeeDto dto)
     {
         if (await employeeRepository.GetByEmailAsync(dto.Email) != null)
-            throw new Exception("Email already exists.");
+            throw new UnauthorizedException("Email already exists.");
 
         var employee = EmployeeMapper.ToEntity(dto);
 
-        // Later
-        // employee.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+        employee.PasswordHash = PasswordHash.HashPassword(dto.Password);
 
         await employeeRepository.AddAsync(employee);
 
@@ -44,7 +45,7 @@ public class EmployeeService(IEmployeeRepository employeeRepository, IUnitOfWork
         var employee = await employeeRepository.GetByIdAsync(id);
 
         if (employee == null)
-            throw new Exception("Employee not found.");
+            throw new NotFoundException("Employee not found.");
 
         EmployeeMapper.UpdateEntity(dto, employee);
 
@@ -58,7 +59,7 @@ public class EmployeeService(IEmployeeRepository employeeRepository, IUnitOfWork
         var employee = await employeeRepository.GetByIdAsync(id);
 
         if (employee == null)
-            throw new Exception("Employee not found.");
+            throw new NotFoundException("Employee not found.");
 
         await employeeRepository.DeleteAsync(id);
 

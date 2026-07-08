@@ -1,7 +1,9 @@
 using AssetManagementSystem.Application.DTOs.Asset;
+using AssetManagementSystem.Application.Exceptions;
 using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Application.Mappers;
 using AssetManagementSystem.Domain.Entities;
+using AssetManagementSystem.Domain.Enums;
 using AssetManagementSystem.Domain.Interfaces;
 
 namespace AssetManagementSystem.Application.Services;
@@ -44,7 +46,7 @@ public class AssetService(IAssetRepository assetRepository, IRepository<AssetCat
         var category = await categoryRepository.GetByIdAsync(dto.AssetCategoryId);
 
         if (category == null)
-            throw new Exception("Asset category not found.");
+            throw new NotFoundException("Asset category not found.");
 
         var asset = AssetMapper.ToEntity(dto);
 
@@ -62,7 +64,7 @@ public class AssetService(IAssetRepository assetRepository, IRepository<AssetCat
         var asset = await assetRepository.GetByIdAsync(id);
 
         if (asset == null)
-            throw new Exception("Asset not found.");
+            throw new NotFoundException("Asset not found.");
 
         AssetMapper.UpdateEntity(dto, asset);
 
@@ -80,7 +82,12 @@ public class AssetService(IAssetRepository assetRepository, IRepository<AssetCat
         var asset = await assetRepository.GetByIdAsync(id);
 
         if (asset == null)
-            throw new Exception("Asset not found.");
+            throw new NotFoundException("Asset not found.");
+
+        if(asset.Status != AssetStatus.Available || asset.Status != AssetStatus.Retired )
+            throw new BadRequestException("Only Available or Retired Assets can be Deleted");
+
+        asset.IsActive = false;
 
         await assetRepository.DeleteAsync(id);
 

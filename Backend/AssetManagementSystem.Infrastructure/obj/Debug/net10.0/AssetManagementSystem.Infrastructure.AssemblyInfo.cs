@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AssetManagementSystem.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a994377e32ca9daac23aa00790f2651d82f61e43")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8b9a5de664fb6613c5b59a3114219a5cb16222d")]
 [assembly: System.Reflection.AssemblyProductAttribute("AssetManagementSystem.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AssetManagementSystem.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

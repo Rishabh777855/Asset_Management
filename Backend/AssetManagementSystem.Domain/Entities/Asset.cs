@@ -30,6 +30,8 @@ public class Asset
 
     public string? Remarks { get; set; }
 
+    public bool IsActive {get; set;} = true;
+
     public AssetCategory AssetCategory { get; set; } = null!;
 
     public ICollection<AssetAssignment> AssetAssignments { get; set; } = new List<AssetAssignment>();

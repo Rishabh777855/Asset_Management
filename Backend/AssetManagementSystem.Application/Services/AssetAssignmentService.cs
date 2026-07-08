@@ -1,4 +1,5 @@
 using AssetManagementSystem.Application.DTOs.AssetAssignment;
+using AssetManagementSystem.Application.Exceptions;
 using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Application.Mappers;
 using AssetManagementSystem.Domain.Entities;
@@ -14,7 +15,7 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
         var employeeExists = await employeeRepository.ExistsAsync(dto.EmployeeId);
 
         if (!employeeExists)
-            throw new Exception("Employee not found.");
+            throw new NotFoundException("Employee not found.");
 
         var asset = await assetRepository.GetByIdAsync(dto.AssetId);
 
@@ -22,7 +23,10 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
             throw new Exception("Asset not found.");
 
         if (asset.Status != AssetStatus.Available)
-            throw new Exception("Asset is not available.");
+            throw new NotFoundException("Asset is not available.");
+
+        if (!asset.IsActive)
+            throw new BadRequestException("Asset is not available or inactive");
 
         var assignment = AssetAssignmentMapper.ToEntity(dto);
 
@@ -40,7 +44,7 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
         var assignment = await assignmentRepository.GetActiveAssignmentAsync(dto.AssetId);
 
         if (assignment == null)
-            throw new Exception("No active assignment found.");
+            throw new NotFoundException("No active assignment found.");
 
         assignment.ReturnDate = dto.ReturnDate;
         assignment.Status = AssignmentStatus.Returned;
@@ -49,7 +53,7 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
         var asset = await assetRepository.GetByIdAsync(dto.AssetId);
 
         if (asset == null)
-            throw new Exception("Asset not found.");
+            throw new NotFoundException("Asset not found.");
 
         asset.Status = AssetStatus.Available;
 

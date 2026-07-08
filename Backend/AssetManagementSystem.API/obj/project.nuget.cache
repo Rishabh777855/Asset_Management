@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "WJbDC4R9cS4=",
+  "dgSpecHash": "rYEgFv/8zsg=",
   "success": true,
   "projectFilePath": "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.API\\AssetManagementSystem.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
+    "C:\\Users\\Shrey Shah\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.9\\microsoft.aspnetcore.openapi.10.0.9.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
