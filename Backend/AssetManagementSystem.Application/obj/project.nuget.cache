@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BC6kMSb8w+0=",
+  "dgSpecHash": "ketbN0D2mmQ=",
   "success": true,
   "projectFilePath": "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Application\\AssetManagementSystem.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Shrey Shah\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512"
+  ],
   "logs": []
 }

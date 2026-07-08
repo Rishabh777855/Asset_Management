@@ -1,4 +1,5 @@
 using AssetManagementSystem.Application.DTOs.Employee;
+using AssetManagementSystem.Application.Helper;
 using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Application.Mappers;
 using AssetManagementSystem.Domain.Interfaces;
@@ -31,8 +32,7 @@ public class EmployeeService(IEmployeeRepository employeeRepository, IUnitOfWork
 
         var employee = EmployeeMapper.ToEntity(dto);
 
-        // Later
-        // employee.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+        employee.PasswordHash = PasswordHash.HashPassword(dto.Password);
 
         await employeeRepository.AddAsync(employee);
 

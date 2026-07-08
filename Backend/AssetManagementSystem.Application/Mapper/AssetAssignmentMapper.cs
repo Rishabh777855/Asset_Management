@@ -28,7 +28,7 @@ public static class AssetAssignmentMapper
             AssetName = assignment.Asset.Name,
             AssignedDate = assignment.AssignedDate,
             ReturnDate = assignment.ReturnDate,
-            Status = assignment.Status,
+            Status = assignment.Status.ToString(),
            // CategoryName = asset.AssetCategory.Name,
             Remarks = assignment.Remarks
         };

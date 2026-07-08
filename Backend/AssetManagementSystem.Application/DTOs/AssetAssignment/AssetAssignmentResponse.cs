@@ -1,5 +1,3 @@
-using AssetManagementSystem.Domain.Enums;
-
 namespace AssetManagementSystem.Application.DTOs.AssetAssignment;
 
 public class AssetAssignmentResponseDto
@@ -16,7 +14,7 @@ public class AssetAssignmentResponseDto
 
     public DateOnly? ReturnDate { get; set; }
 
-    public AssignmentStatus Status { get; set; }
+    public string Status { get; set; } = string.Empty;
 
     public string CategoryName { get; set; } = string.Empty;
 
