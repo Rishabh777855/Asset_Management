@@ -503,3 +503,4 @@ D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.API\
 D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\AssetManagementSystem.API.genruntimeconfig.cache
 D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.API\obj\Debug\net10.0\ref\AssetManagementSystem.API.dll
 D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.API\bin\Debug\net10.0\BCrypt-Net-Next.dll
+D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

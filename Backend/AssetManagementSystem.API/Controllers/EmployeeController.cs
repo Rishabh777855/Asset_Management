@@ -36,12 +36,9 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginDto loginDto)
     {
-        var isAuthenticated = await authService.LoginAsync(loginDto);
+        var authenticated = await authService.LoginAsync(loginDto);
 
-        if (!isAuthenticated)
-            return Unauthorized("Invalid email or password.");
-
-        return Ok("Login successful.");
+        return Ok(authenticated);
     }
 
     [HttpPut("{id:guid}")]
