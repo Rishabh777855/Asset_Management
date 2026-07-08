@@ -61,7 +61,9 @@ public class EmployeeService(IEmployeeRepository employeeRepository, IUnitOfWork
         if (employee == null)
             throw new NotFoundException("Employee not found.");
 
-        await employeeRepository.DeleteAsync(id);
+        employee.IsActive = false;
+
+        await employeeRepository.UpdateAsync(employee);
 
         await unitOfWork.SaveChangesAsync();
     }
