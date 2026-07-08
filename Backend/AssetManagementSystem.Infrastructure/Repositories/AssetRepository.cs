@@ -17,7 +17,7 @@ public class AssetRepository(ApplicationDbContext context) : Repository<Asset>(c
     public async Task<IEnumerable<Asset>> GetAvailableAssetsAsync()
     {
         return await context.Assets
-            .Where(a => a.Status == AssetStatus.Available)
+            .Where(a =>a.IsActive && a.Status == AssetStatus.Available)
             .ToListAsync();
     }
 
@@ -25,7 +25,7 @@ public class AssetRepository(ApplicationDbContext context) : Repository<Asset>(c
     {
         return await context.Assets
             .Include(a => a.AssetCategory)
-            .Where(a => a.AssetCategoryId == categoryId)
+            .Where(a =>a.IsActive && a.AssetCategoryId == categoryId)
             .ToListAsync();
     }
 

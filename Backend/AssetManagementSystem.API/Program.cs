@@ -1,3 +1,4 @@
+using AssetManagementSystem.API.Middleware;
 using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Application.Services;
 using AssetManagementSystem.Domain.Interfaces;
@@ -43,6 +44,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 

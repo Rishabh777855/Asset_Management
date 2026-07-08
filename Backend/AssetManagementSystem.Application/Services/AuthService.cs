@@ -1,4 +1,5 @@
 using AssetManagementSystem.Application.DTOs.Employee;
+using AssetManagementSystem.Application.Exceptions;
 using AssetManagementSystem.Application.Helper;
 using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Domain.Interfaces;
@@ -12,15 +13,15 @@ public class AuthService(IEmployeeRepository employeeRepository) : IAuthService
         var employee = await employeeRepository.GetByEmailAsync(loginDto.Email);
 
         if(employee == null)
-           return false;
+           throw new UnauthorizedException("Employee doesn't exsist");
 
         if (!employee.IsActive)
-            return false;
+            throw new UnauthorizedException("Employee Account is not active");
 
         var isValidPassword = PasswordHash.VerifyPassword(loginDto.Password, employee.PasswordHash!);
 
         if (!isValidPassword)
-            return false;
+            throw new UnauthorizedException("Enter a valid password");
 
         return true;
     }
