@@ -84,12 +84,12 @@ public class AssetService(IAssetRepository assetRepository, IRepository<AssetCat
         if (asset == null)
             throw new NotFoundException("Asset not found.");
 
-        if(asset.Status != AssetStatus.Available || asset.Status != AssetStatus.Retired )
+        if(asset.Status != AssetStatus.Available && asset.Status != AssetStatus.Retired )
             throw new BadRequestException("Only Available or Retired Assets can be Deleted");
 
         asset.IsActive = false;
 
-        await assetRepository.DeleteAsync(id);
+        await assetRepository.UpdateAsync(asset);
 
         await unitOfWork.SaveChangesAsync();
     }
