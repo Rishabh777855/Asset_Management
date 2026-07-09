@@ -25,7 +25,7 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
         return Ok(employee);
     }
 
-    [HttpPost]
+    [HttpPost("register")]
     public async Task<IActionResult> CreateEmployee(CreateEmployeeDto createEmployeeDto)
     {
         await employeeService.CreateEmployeeAsync(createEmployeeDto);
