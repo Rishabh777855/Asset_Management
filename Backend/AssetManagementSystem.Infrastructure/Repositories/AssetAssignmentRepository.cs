@@ -14,8 +14,7 @@ public class AssetAssignmentRepository(ApplicationDbContext context) : Repositor
             .Include(a => a.Asset)
             .FirstOrDefaultAsync(a =>
                 a.AssetId == assetId &&
-                (a.Status == AssignmentStatus.Active || 
-                 a.Status == AssignmentStatus.Returned));
+                a.Status == AssignmentStatus.Active);
     }
 
     public async Task<IEnumerable<AssetAssignment>> GetEmployeeAssignmentsAsync(Guid employeeId)

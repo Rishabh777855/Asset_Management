@@ -50,16 +50,9 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
         assignment.Status = AssignmentStatus.Returned;
         assignment.Remarks = dto.Remarks;
 
-        var asset = await assetRepository.GetByIdAsync(dto.AssetId);
-
-        if (asset == null)
-            throw new NotFoundException("Asset not found.");
-
-        asset.Status = AssetStatus.Available;
+        assignment.Asset.Status = AssetStatus.Available;
 
         await assignmentRepository.UpdateAsync(assignment);
-
-        await assetRepository.UpdateAsync(asset);
 
         await unitOfWork.SaveChangesAsync();
     }

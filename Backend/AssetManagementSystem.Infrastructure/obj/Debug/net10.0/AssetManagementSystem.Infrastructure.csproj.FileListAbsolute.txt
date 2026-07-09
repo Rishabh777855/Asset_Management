@@ -52,3 +52,5 @@ D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.Infr
 D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.Infrastructure\obj\Debug\net10.0\AssetManagementSystem.Infrastructure.pdb
 D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.Infrastructure\obj\Debug\net10.0\AssetManagementSystem.Infrastructure.genruntimeconfig.cache
 D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.Infrastructure\obj\Debug\net10.0\ref\AssetManagementSystem.Infrastructure.dll
+D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.Infrastructure\bin\Debug\net10.0\AssetManagementSystem.Application.dll
+D:\Rishabh\Asset_Management1\Asset_Management\Backend\AssetManagementSystem.Infrastructure\bin\Debug\net10.0\AssetManagementSystem.Application.pdb

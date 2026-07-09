@@ -3,6 +3,7 @@ using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Application.Services;
 using AssetManagementSystem.Domain.Interfaces;
 using AssetManagementSystem.Infrastructure;
+using AssetManagementSystem.Infrastructure.Authentication;
 using AssetManagementSystem.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +30,7 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IAssetService, AssetService>();
 builder.Services.AddScoped<IAssetAssignmentService, AssetAssignmentService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
