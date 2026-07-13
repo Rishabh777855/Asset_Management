@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {}
+    "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {
+    "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj",
+        "projectUniqueName": "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj",
         "projectName": "AssetManagementSystem.Domain",
-        "projectPath": "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj",
+        "projectPath": "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj",
         "packagesPath": "C:\\Users\\Shrey Shah\\.nuget\\packages\\",
-        "outputPath": "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\obj\\",
+        "outputPath": "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Shrey Shah\\AppData\\Roaming\\NuGet\\NuGet.Config",
