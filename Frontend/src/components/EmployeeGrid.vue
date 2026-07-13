@@ -31,6 +31,13 @@
 
           <td class="px-6 py-4 text-center">
             <button
+              @click="$emit('assignAsset', employee.id)"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded mr-2"
+            >
+              Assign Asset
+            </button>
+
+            <button
               @click="$emit('view', employee.id)"
               class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded mr-2"
             >
@@ -69,5 +76,5 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['view', 'edit', 'delete'])
+const emit = defineEmits(['view', 'edit', 'delete', 'assignAsset'])
 </script>

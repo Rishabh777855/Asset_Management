@@ -67,11 +67,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Application\\AssetManagementSystem.Application.csproj",
+      "projectUniqueName": "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Application\\AssetManagementSystem.Application.csproj",
       "projectName": "AssetManagementSystem.Application",
-      "projectPath": "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Application\\AssetManagementSystem.Application.csproj",
+      "projectPath": "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Application\\AssetManagementSystem.Application.csproj",
       "packagesPath": "C:\\Users\\Shrey Shah\\.nuget\\packages\\",
-      "outputPath": "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Application\\obj\\",
+      "outputPath": "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Shrey Shah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,8 +89,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {
-              "projectPath": "D:\\Rishabh\\Asset_Management1\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj"
+            "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj": {
+              "projectPath": "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.Domain\\AssetManagementSystem.Domain.csproj"
             }
           }
         }

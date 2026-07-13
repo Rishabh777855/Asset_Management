@@ -3,8 +3,13 @@
     <div class="flex justify-between items-center mb-6">
       <h1 class="text-3xl font-bold">Employees</h1>
     </div>
-
-    <EmployeeGrid :employees="employees" />
+    <EmployeeGrid
+      :employees="employees"
+      @edit="editEmployee"
+      @delete="deleteEmployee"
+      @view="viewEmployee"
+      @assign-asset="assignAsset"
+    />
   </div>
 </template>
 
@@ -27,4 +32,9 @@ const loadEmployees = async () => {
 onMounted(() => {
   loadEmployees()
 })
+
+const assignAsset = () => {
+  router.push('/assets/assign')
+}
+
 </script>
