@@ -1,7 +1,4 @@
 import { createWebHistory } from 'vue-router'
-import AboutView from '@/views/AboutView.vue'
-import ContactView from '@/views/ContactView.vue'
-import HomeView from '@/views/HomeView.vue'
 import { createRouter } from 'vue-router'
 import AssetListView from '@/views/AssetListView.vue'
 import AddAssetView from '@/views/AddAssetView.vue'
@@ -12,21 +9,6 @@ import AssignAssetView from '@/views/AssignAssetView.vue'
 import EmployeeAssignmentView from '@/views/EmployeeAssignmentView.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: HomeView,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: AboutView,
-  },
-  {
-    path: '/contact',
-    name: 'Contact',
-    component: ContactView,
-  },
 
   {
     path: '/assets',
@@ -66,7 +48,7 @@ const routes = [
 
   {
     path: '/employees/:id/assignments',
-    name: 'AssignAsset',
+    name: 'EmployeeAssignment',
     component: EmployeeAssignmentView,
   },
 ]
