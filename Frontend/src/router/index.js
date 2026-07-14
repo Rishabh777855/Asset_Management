@@ -7,8 +7,14 @@ import AssetDetailsView from '@/views/AssetDetailsView.vue'
 import EmployeeListView from '@/views/EmployeeListView.vue'
 import AssignAssetView from '@/views/AssignAssetView.vue'
 import EmployeeAssignmentView from '@/views/EmployeeAssignmentView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const routes = [
+  {
+    path: '/',
+    name: 'Login',
+    component: LoginView,
+  },
 
   {
     path: '/assets',

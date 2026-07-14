@@ -1,9 +1,11 @@
 using AssetManagementSystem.Application.DTOs.AssetAssignment;
 using AssetManagementSystem.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssetManagementSystem.API.Controller;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 

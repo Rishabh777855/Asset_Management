@@ -1,5 +1,6 @@
 using AssetManagementSystem.Application.DTOs.Employee;
 using AssetManagementSystem.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssetManagementSystem.API.Controller;
@@ -9,6 +10,7 @@ namespace AssetManagementSystem.API.Controller;
 
 public class EmployeeController(IEmployeeService employeeService, IAuthService authService) : ControllerBase
 {
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetAllEmployees()
     {
@@ -17,6 +19,7 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
         return Ok(employee);
     }
 
+    [Authorize]
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetEmployeeById(Guid id)
     {
@@ -41,6 +44,7 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
         return Ok(authenticated);
     }
 
+    [Authorize]
     [HttpPut("{id:guid}")]
     public async Task<IActionResult> UpdateEmployee(Guid id, UpdateEmployeeDto updateEmployeeDto)
     {
@@ -49,6 +53,7 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
         return Ok("Employee Updated Successfully");
     }
 
+    [Authorize]
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> Delete(Guid id)
     {
