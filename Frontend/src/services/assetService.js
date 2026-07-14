@@ -23,3 +23,7 @@ export function UpdateAssets(id, asset) {
 export function DeleteAsset(id){
   return api.delete(`Asset/${id}`)
 }
+
+export function GetAvailableAssets(){
+  return api.get('/Asset/available-assets')
+}

@@ -8,6 +8,8 @@ import AddAssetView from '@/views/AddAssetView.vue'
 import EditAssetView from '@/views/EditAssetView.vue'
 import AssetDetailsView from '@/views/AssetDetailsView.vue'
 import EmployeeListView from '@/views/EmployeeListView.vue'
+import AssignAssetView from '@/views/AssignAssetView.vue'
+import EmployeeAssignmentView from '@/views/EmployeeAssignmentView.vue'
 
 const routes = [
   {
@@ -54,7 +56,19 @@ const routes = [
     path: '/employees',
     name: 'Employees',
     component: EmployeeListView,
-  }
+  },
+
+  {
+    path: '/employees/:id/assign-asset',
+    name: 'AssignAsset',
+    component: AssignAssetView,
+  },
+
+  {
+    path: '/employees/:id/assignments',
+    name: 'AssignAsset',
+    component: EmployeeAssignmentView,
+  },
 ]
 
 const router = createRouter({

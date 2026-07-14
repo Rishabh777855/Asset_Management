@@ -8,7 +8,7 @@ public interface IAssetService
 
     Task<AssetResponseDto?> GetAssetByIdAsync(Guid id);
 
-    // Task<IEnumerable<AssetResponseDto>> GetAvailableAssetsAsync();
+     Task<IEnumerable<AssetResponseDto>> GetAvailableAssetsAsync();
 
     Task<IEnumerable<AssetResponseDto>> GetAssetsByCategoryAsync(Guid categoryId);
 

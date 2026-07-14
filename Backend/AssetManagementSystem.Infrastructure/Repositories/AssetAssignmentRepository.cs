@@ -12,6 +12,7 @@ public class AssetAssignmentRepository(ApplicationDbContext context) : Repositor
         return await context.AssetAssignments
             .Include(a => a.Employee)
             .Include(a => a.Asset)
+                .ThenInclude(a => a.AssetCategory)
             .FirstOrDefaultAsync(a =>
                 a.AssetId == assetId &&
                 a.Status == AssignmentStatus.Active);
@@ -22,6 +23,7 @@ public class AssetAssignmentRepository(ApplicationDbContext context) : Repositor
         return await context.AssetAssignments
             .Include(a => a.Employee)
             .Include(a => a.Asset)
+                 .ThenInclude(a => a.AssetCategory)
             .Where(a => a.EmployeeId == employeeId)
             .ToListAsync();
     }

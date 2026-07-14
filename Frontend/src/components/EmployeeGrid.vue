@@ -12,9 +12,13 @@
       </thead>
 
       <tbody>
-        <tr v-for="employee in props.employees" :key="employee.id" class="border-b hover:bg-gray-50">
+        <tr
+          v-for="employee in props.employees"
+          :key="employee.id"
+          class="border-b hover:bg-gray-50"
+        >
           <td class="px-6 py-4">
-            {{employee.firstName}}
+            {{ employee.firstName }}
           </td>
 
           <td class="px-6 py-4">
@@ -31,13 +35,20 @@
 
           <td class="px-6 py-4 text-center">
             <button
+              @click="console.log(employee.id); emit('viewAssignment', employee.id)"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded mr-2"
+            >
+              View Assignment
+            </button>
+
+            <button
               @click="$emit('assignAsset', employee.id)"
               class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded mr-2"
             >
               Assign Asset
             </button>
 
-            <button
+            <!--     <button
               @click="$emit('view', employee.id)"
               class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded mr-2"
             >
@@ -56,7 +67,7 @@
               class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
             >
               Delete
-            </button>
+            </button> -->
           </td>
         </tr>
 
@@ -76,5 +87,5 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['view', 'edit', 'delete', 'assignAsset'])
+const emit = defineEmits(['view', 'edit', 'delete', 'assignAsset', 'viewAssignment'])
 </script>
