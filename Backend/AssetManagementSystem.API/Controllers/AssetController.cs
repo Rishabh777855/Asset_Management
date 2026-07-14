@@ -1,10 +1,11 @@
 using AssetManagementSystem.Application.DTOs.Asset;
 using AssetManagementSystem.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssetManagementSystem.API.Controller;
 
-
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class AssetController(IAssetService assetService) : ControllerBase

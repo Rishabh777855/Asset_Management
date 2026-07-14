@@ -20,7 +20,7 @@ const router = useRouter()
 
 const categories = ref([])
 
-const form = useAssetForm();
+const form = useAssetForm()
 
 const loadCategories = async () => {
   try {
