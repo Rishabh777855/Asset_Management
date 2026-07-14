@@ -9,6 +9,7 @@
       @delete="deleteEmployee"
       @view="viewEmployee"
       @assign-asset="assignAsset"
+      @view-assignment="viewAssignment"
     />
   </div>
 </template>
@@ -17,6 +18,9 @@
 import { GetEmployees } from '@/services/employeeService'
 import { ref, onMounted } from 'vue'
 import EmployeeGrid from '@/components/EmployeeGrid.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const employees = ref([])
 
@@ -33,8 +37,12 @@ onMounted(() => {
   loadEmployees()
 })
 
-const assignAsset = () => {
-  router.push('/assets/assign')
+const assignAsset = (id) => {
+  router.push(`/employees/${id}/assign-asset`)
 }
+
+const viewAssignment = (id) => {
+  router.push(`/employees/${id}/assignments`);
+};
 
 </script>

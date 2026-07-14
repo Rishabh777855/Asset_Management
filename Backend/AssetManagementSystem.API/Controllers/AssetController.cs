@@ -36,6 +36,13 @@ public class AssetController(IAssetService assetService) : ControllerBase
         return Ok(asset);
     }
 
+    [HttpGet("available-assets")]
+    public async Task<IActionResult> GetAvailableAssets()
+    {
+        var asset = await assetService.GetAvailableAssetsAsync();
+
+        return Ok(asset);
+    }
 
     [HttpPost]
     public async Task<IActionResult> CreateAsset(CreateAssetDto createAssetDto)

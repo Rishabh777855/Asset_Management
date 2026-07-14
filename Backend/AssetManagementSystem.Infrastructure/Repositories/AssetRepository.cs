@@ -17,6 +17,7 @@ public class AssetRepository(ApplicationDbContext context) : Repository<Asset>(c
     public async Task<IEnumerable<Asset>> GetAvailableAssetsAsync()
     {
         return await context.Assets
+            .Include(a => a.AssetCategory)
             .Where(a =>a.IsActive && a.Status == AssetStatus.Available)
             .ToListAsync();
     }
