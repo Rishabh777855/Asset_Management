@@ -17,4 +17,5 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<AssetAssignment> AssetAssignments { get; set; }
 
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 }

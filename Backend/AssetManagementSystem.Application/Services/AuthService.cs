@@ -3,11 +3,12 @@ using AssetManagementSystem.Application.DTOs.Employee;
 using AssetManagementSystem.Application.Exceptions;
 using AssetManagementSystem.Application.Helper;
 using AssetManagementSystem.Application.Interfaces;
+using AssetManagementSystem.Domain.Entities;
 using AssetManagementSystem.Domain.Interfaces;
 
 namespace AssetManagementSystem.Application.Services;
 
-public class AuthService(IEmployeeRepository employeeRepository, IJwtService jwtService) : IAuthService
+public class AuthService(IEmployeeRepository employeeRepository, IJwtService jwtService, IRefreshTokenService refreshTokenService, IRefreshTokenRepository refreshTokenRepository, IUnitOfWork unitOfWork) : IAuthService
 {
     public async Task<LoginResponseDto> LoginAsync(LoginDto loginDto, CancellationToken cancellationToken)
     {
@@ -26,9 +27,26 @@ public class AuthService(IEmployeeRepository employeeRepository, IJwtService jwt
 
         var token = jwtService.GenerateToken(employee);
 
+        var refreshToken = refreshTokenService.GenerateRefreshToken();
+
+        var refreshTokenEntity = new RefreshToken
+        {
+            EmployeeId = employee.Id,
+            Token = refreshToken,
+            ExpiryDate = DateTime.UtcNow.AddDays(1),
+            CreatedAt = DateTime.UtcNow,
+            IsRevoked = false
+        };
+
+        await refreshTokenRepository.AddAsync(refreshTokenEntity, cancellationToken);
+
+        await unitOfWork.SaveChangesAsync(cancellationToken);
+
+
         return new LoginResponseDto
         {
             Token = token,
+            RefreshToken = refreshToken,
             EmployeeName = $"{employee.FirstName} {employee.LastName}",
             Email = employee.Email
         };
