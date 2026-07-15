@@ -7,29 +7,29 @@ public class Repository<T>(ApplicationDbContext context) : IRepository<T> where 
 {
     // protected readonly DbSet<T> _dbSet = context.Set<T>();
 
-    public async Task<IEnumerable<T>> GetAllAsync()
+    public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken)
     {
-        return await context.Set<T>().ToListAsync();
+        return await context.Set<T>().ToListAsync(cancellationToken);
     }
 
-    public async Task<T?> GetByIdAsync(Guid id)
+    public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
-        return await context.Set<T>().FindAsync(id);
+        return await context.Set<T>().FindAsync(id, cancellationToken);
     }
 
-    public async Task AddAsync(T entity)
+    public async Task AddAsync(T entity, CancellationToken cancellationToken)
     {
-        await context.Set<T>().AddAsync(entity);
+        await context.Set<T>().AddAsync(entity, cancellationToken);
     }
 
-    public async Task UpdateAsync(T entity)
+    public async Task UpdateAsync(T entity, CancellationToken cancellationToken)
     {
         context.Set<T>().Update(entity);
     }
 
-    public async Task DeleteAsync(Guid id)
+    public async Task DeleteAsync(Guid id, CancellationToken cancellationToken)
     {
-        var entity = await context.Set<T>().FindAsync(id);
+        var entity = await context.Set<T>().FindAsync(id, cancellationToken);
         
         if (entity != null)
         {

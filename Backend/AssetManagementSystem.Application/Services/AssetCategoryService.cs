@@ -9,9 +9,9 @@ namespace AssetManagementSystem.Application.Services;
 public class AssetCategoryService(IRepository<AssetCategory> categoryRepository)
     : IAssetCategoryService
 {
-    public async Task<IEnumerable<AssetCategoryResponseDto>> GetAllAssetCategoriesAsync()
+    public async Task<IEnumerable<AssetCategoryResponseDto>> GetAllAssetCategoriesAsync(CancellationToken cancellationToken)
     {
-        var categories = await categoryRepository.GetAllAsync();
+        var categories = await categoryRepository.GetAllAsync(cancellationToken);
 
         return categories.Select(AssetCategoryMapper.ToResponseDto);
     }

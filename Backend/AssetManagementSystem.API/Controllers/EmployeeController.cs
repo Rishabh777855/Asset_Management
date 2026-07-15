@@ -12,52 +12,52 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
 {
     [Authorize]
     [HttpGet]
-    public async Task<IActionResult> GetAllEmployees()
+    public async Task<IActionResult> GetAllEmployees(CancellationToken cancellationToken)
     {
-        var employee = await employeeService.GetAllEmployeesAsync();
+        var employee = await employeeService.GetAllEmployeesAsync(cancellationToken);
 
         return Ok(employee);
     }
 
     [Authorize]
     [HttpGet("{id:guid}")]
-    public async Task<IActionResult> GetEmployeeById(Guid id)
+    public async Task<IActionResult> GetEmployeeById(Guid id, CancellationToken cancellationToken)
     {
-        var employee = await employeeService.GetEmployeeByIdAsync(id);   // null logic remaining
+        var employee = await employeeService.GetEmployeeByIdAsync(id, cancellationToken);   // null logic remaining
 
         return Ok(employee);
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> CreateEmployee(CreateEmployeeDto createEmployeeDto)
+    public async Task<IActionResult> CreateEmployee(CreateEmployeeDto createEmployeeDto, CancellationToken cancellationToken)
     {
-        await employeeService.CreateEmployeeAsync(createEmployeeDto);
+        await employeeService.CreateEmployeeAsync(createEmployeeDto, cancellationToken);
 
         return Ok("Employee Created Successfully");
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login(LoginDto loginDto)
+    public async Task<IActionResult> Login(LoginDto loginDto, CancellationToken cancellationToken)
     {
-        var authenticated = await authService.LoginAsync(loginDto);
+        var authenticated = await authService.LoginAsync(loginDto, cancellationToken);
 
         return Ok(authenticated);
     }
 
     [Authorize]
     [HttpPut("{id:guid}")]
-    public async Task<IActionResult> UpdateEmployee(Guid id, UpdateEmployeeDto updateEmployeeDto)
+    public async Task<IActionResult> UpdateEmployee(Guid id, UpdateEmployeeDto updateEmployeeDto, CancellationToken cancellationToken)
     {
-        await employeeService.UpdateEmployeeAsync(id, updateEmployeeDto);
+        await employeeService.UpdateEmployeeAsync(id, updateEmployeeDto, cancellationToken);
 
         return Ok("Employee Updated Successfully");
     }
 
     [Authorize]
     [HttpDelete("{id:guid}")]
-    public async Task<IActionResult> Delete(Guid id)
+    public async Task<IActionResult> Delete(Guid id, CancellationToken cancellationToken)
     {
-        await employeeService.DeleteEmployeeAsync(id);
+        await employeeService.DeleteEmployeeAsync(id, cancellationToken);
 
         return NoContent();
     }

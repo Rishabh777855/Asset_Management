@@ -12,33 +12,33 @@ namespace AssetManagementSystem.API.Controller;
 public class AssetAssignmentController(IAssetAssignmentService assetAssignmentService) : ControllerBase
 {
     [HttpPost("assign")]
-    public async Task<IActionResult> AssignAssets(AssignAssetDto assignAssetDto)
+    public async Task<IActionResult> AssignAssets(AssignAssetDto assignAssetDto, CancellationToken cancellationToken)
     {
-        await assetAssignmentService.AssignAssetAsync(assignAssetDto);
+        await assetAssignmentService.AssignAssetAsync(assignAssetDto, cancellationToken);
 
         return Ok("Asset assigned successfully");
     }
 
     [HttpPost("return")]
-    public async Task<IActionResult> ReturnAssets(ReturnAssetDto returnAssetDto)
+    public async Task<IActionResult> ReturnAssets(ReturnAssetDto returnAssetDto, CancellationToken cancellationToken)
     {
-        await assetAssignmentService.ReturnAssetAsync(returnAssetDto);
+        await assetAssignmentService.ReturnAssetAsync(returnAssetDto, cancellationToken);
 
         return Ok("Asset returned successfully");
     }
 
     [HttpGet("employee/{employeeId:guid}")]
-    public async Task<IActionResult> GetEmployeeAsset(Guid employeeId)
+    public async Task<IActionResult> GetEmployeeAsset(Guid employeeId, CancellationToken cancellationToken)
     {
-        var asset = await assetAssignmentService.GetEmployeeAssetsAsync(employeeId);
+        var asset = await assetAssignmentService.GetEmployeeAssetsAsync(employeeId, cancellationToken);
 
         return Ok(asset);
     }
 
      [HttpGet("current/{assetId:guid}")]
-    public async Task<IActionResult> GetCurrentAssignment(Guid assetId)
+    public async Task<IActionResult> GetCurrentAssignment(Guid assetId, CancellationToken cancellationToken)
     {
-        var assignment = await assetAssignmentService.GetCurrentAssignmentAsync(assetId);
+        var assignment = await assetAssignmentService.GetCurrentAssignmentAsync(assetId, cancellationToken);
 
         if (assignment == null)
             return NotFound();

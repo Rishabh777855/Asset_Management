@@ -7,13 +7,13 @@ namespace AssetManagementSystem.API.Controllers;
 [Authorize]
 [ApiController]
 [Route("api/[controller]")]
-public class AssetCategoryController(IAssetCategoryService assetCategoryService)
+public class AssetCategoryController(IAssetCategoryService assetCategoryService, CancellationToken cancellationToken)
     : ControllerBase
 {
     [HttpGet("categories")]
     public async Task<IActionResult> GetAllCategories()
     {
-        var categories = await assetCategoryService.GetAllAssetCategoriesAsync();
+        var categories = await assetCategoryService.GetAllAssetCategoriesAsync(cancellationToken);
 
         return Ok(categories);
     }

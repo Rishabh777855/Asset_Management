@@ -5,5 +5,5 @@ namespace AssetManagementSystem.Application.Interfaces;
 
 public interface IAuthService
 {
-    Task<LoginResponseDto> LoginAsync(LoginDto loginDto);
+    Task<LoginResponseDto> LoginAsync(LoginDto loginDto, CancellationToken cancellationToken);
 }

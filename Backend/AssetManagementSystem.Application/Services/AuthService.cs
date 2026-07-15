@@ -9,9 +9,9 @@ namespace AssetManagementSystem.Application.Services;
 
 public class AuthService(IEmployeeRepository employeeRepository, IJwtService jwtService) : IAuthService
 {
-    public async Task<LoginResponseDto> LoginAsync(LoginDto loginDto)
+    public async Task<LoginResponseDto> LoginAsync(LoginDto loginDto, CancellationToken cancellationToken)
     {
-        var employee = await employeeRepository.GetByEmailAsync(loginDto.Email);
+        var employee = await employeeRepository.GetByEmailAsync(loginDto.Email, cancellationToken);
 
         if (employee == null)
             throw new UnauthorizedException("Employee doesn't exsist");
