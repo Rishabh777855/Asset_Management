@@ -30,6 +30,7 @@ builder.Services.AddScoped<IAssetRepository, AssetRepository>();
 builder.Services.AddScoped<IAssetAssignmentRepository, AssetAssignmentRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+builder.Services.AddScoped<IAssetHistoryRepository, AssetHistoryRepository>();
 
 //Services
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
