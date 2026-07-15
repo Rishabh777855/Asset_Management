@@ -2,7 +2,6 @@ using AssetManagementSystem.Application.DTOs.AssetAssignment;
 using AssetManagementSystem.Application.Exceptions;
 using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Application.Mappers;
-using AssetManagementSystem.Domain.Entities;
 using AssetManagementSystem.Domain.Enums;
 using AssetManagementSystem.Domain.Interfaces;
 
@@ -10,14 +9,14 @@ namespace AssetManagementSystem.Application.Services;
 
 public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeRepository employeeRepository, IAssetAssignmentRepository assignmentRepository, IUnitOfWork unitOfWork) : IAssetAssignmentService
 {
-    public async Task AssignAssetAsync(AssignAssetDto dto)
+    public async Task AssignAssetAsync(AssignAssetDto dto, CancellationToken cancellationToken)
     {
-        var employeeExists = await employeeRepository.ExistsAsync(dto.EmployeeId);
+        var employeeExists = await employeeRepository.ExistsAsync(dto.EmployeeId, cancellationToken);
 
         if (!employeeExists)
             throw new NotFoundException("Employee not found.");
 
-        var asset = await assetRepository.GetByIdAsync(dto.AssetId);
+        var asset = await assetRepository.GetByIdAsync(dto.AssetId, cancellationToken);
 
         if (asset == null)
             throw new Exception("Asset not found.");
@@ -32,16 +31,16 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
 
         asset.Status = AssetStatus.Assigned;
 
-        await assetRepository.UpdateAsync(asset);
+        await assetRepository.UpdateAsync(asset, cancellationToken);
 
-        await assignmentRepository.AddAsync(assignment);
+        await assignmentRepository.AddAsync(assignment, cancellationToken);
 
-        await unitOfWork.SaveChangesAsync();
+        await unitOfWork.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task ReturnAssetAsync(ReturnAssetDto dto)
+    public async Task ReturnAssetAsync(ReturnAssetDto dto, CancellationToken cancellationToken)
     {
-        var assignment = await assignmentRepository.GetActiveAssignmentAsync(dto.AssetId);
+        var assignment = await assignmentRepository.GetActiveAssignmentAsync(dto.AssetId, cancellationToken);
 
         if (assignment == null)
             throw new NotFoundException("No active assignment found.");
@@ -52,21 +51,21 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
 
         assignment.Asset.Status = AssetStatus.Available;
 
-        await assignmentRepository.UpdateAsync(assignment);
+        await assignmentRepository.UpdateAsync(assignment, cancellationToken);
 
-        await unitOfWork.SaveChangesAsync();
+        await unitOfWork.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task<IEnumerable<AssetAssignmentResponseDto>> GetEmployeeAssetsAsync(Guid employeeId)
+    public async Task<IEnumerable<AssetAssignmentResponseDto>> GetEmployeeAssetsAsync(Guid employeeId, CancellationToken cancellationToken)
     {
-        var assignments = await assignmentRepository.GetEmployeeAssignmentsAsync(employeeId);
+        var assignments = await assignmentRepository.GetEmployeeAssignmentsAsync(employeeId, cancellationToken);
 
         return assignments.Select(AssetAssignmentMapper.ToResponseDto);
     }
 
-    public async Task<AssetAssignmentResponseDto?> GetCurrentAssignmentAsync(Guid assetId)
+    public async Task<AssetAssignmentResponseDto?> GetCurrentAssignmentAsync(Guid assetId, CancellationToken cancellationToken)
     {
-        var assignment = await assignmentRepository.GetActiveAssignmentAsync(assetId);
+        var assignment = await assignmentRepository.GetActiveAssignmentAsync(assetId, cancellationToken);
 
         if (assignment == null)
             return null;

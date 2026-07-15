@@ -4,11 +4,11 @@ namespace AssetManagementSystem.Application.Interfaces;
 
 public interface IAssetAssignmentService
 {
-    Task AssignAssetAsync(AssignAssetDto dto);
+    Task AssignAssetAsync(AssignAssetDto dto, CancellationToken cancellationToken);
 
-    Task ReturnAssetAsync(ReturnAssetDto dto);
+    Task ReturnAssetAsync(ReturnAssetDto dto, CancellationToken cancellationToken);
 
-    Task<IEnumerable<AssetAssignmentResponseDto>> GetEmployeeAssetsAsync(Guid employeeId);
+    Task<IEnumerable<AssetAssignmentResponseDto>> GetEmployeeAssetsAsync(Guid employeeId, CancellationToken cancellationToken);
 
-    Task<AssetAssignmentResponseDto?> GetCurrentAssignmentAsync(Guid assetId);
+    Task<AssetAssignmentResponseDto?> GetCurrentAssignmentAsync(Guid assetId, CancellationToken cancellationToken);
 }

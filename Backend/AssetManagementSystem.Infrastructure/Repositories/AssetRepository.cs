@@ -7,34 +7,34 @@ namespace AssetManagementSystem.Infrastructure.Repositories;
 
 public class AssetRepository(ApplicationDbContext context) : Repository<Asset>(context), IAssetRepository
 {
-     public async Task<IEnumerable<Asset>> GetAllAssetsWithCategoryAsync()
+     public async Task<IEnumerable<Asset>> GetAllAssetsWithCategoryAsync(CancellationToken cancellationToken)
     {
         return await context.Assets
             .Include(a => a.AssetCategory)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
     }
 
-    public async Task<IEnumerable<Asset>> GetAvailableAssetsAsync()
+    public async Task<IEnumerable<Asset>> GetAvailableAssetsAsync(CancellationToken cancellationToken)
     {
         return await context.Assets
             .Include(a => a.AssetCategory)
             .Where(a =>a.IsActive && a.Status == AssetStatus.Available)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
     }
 
-    public async Task<IEnumerable<Asset>> GetAssetsByCategoryAsync(Guid categoryId)
+    public async Task<IEnumerable<Asset>> GetAssetsByCategoryAsync(Guid categoryId, CancellationToken cancellationToken)
     {
         return await context.Assets
             .Include(a => a.AssetCategory)
             .Where(a =>a.IsActive && a.AssetCategoryId == categoryId)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
     }
 
-    public async Task<Asset?> GetAssetWithCategoryAsync(Guid id)
+    public async Task<Asset?> GetAssetWithCategoryAsync(Guid id, CancellationToken cancellationToken)
     {
         return await context.Assets
             .Include(a => a.AssetCategory)
-            .FirstOrDefaultAsync(a => a.Id == id);
+            .FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
     }
 }
 
