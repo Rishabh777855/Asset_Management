@@ -1,3 +1,4 @@
+using AssetManagementSystem.Application.DTOs.Auth;
 using AssetManagementSystem.Application.DTOs.Employee;
 using AssetManagementSystem.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -41,6 +42,15 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
     public async Task<IActionResult> LoginAsync(LoginDto loginDto, CancellationToken cancellationToken)
     {
         var result = await authService.LoginAsync(loginDto, cancellationToken);
+
+        return Ok(result);
+    }
+
+    [AllowAnonymous]
+    [HttpPost("refresh")]
+    public async Task<IActionResult> RefreshTokenAsync(RefreshTokenDto refreshTokenDto, CancellationToken cancellationToken)
+    {
+        var result = await authService.RefreshTokenAsync(refreshTokenDto, cancellationToken);
 
         return Ok(result);
     }

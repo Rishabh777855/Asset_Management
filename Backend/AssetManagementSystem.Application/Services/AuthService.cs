@@ -1,4 +1,5 @@
 using AssetManagementSystem.Application.DTOs;
+using AssetManagementSystem.Application.DTOs.Auth;
 using AssetManagementSystem.Application.DTOs.Employee;
 using AssetManagementSystem.Application.Exceptions;
 using AssetManagementSystem.Application.Helper;
@@ -42,11 +43,54 @@ public class AuthService(IEmployeeRepository employeeRepository, IJwtService jwt
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
-
         return new LoginResponseDto
         {
             Token = token,
             RefreshToken = refreshToken,
+            EmployeeName = $"{employee.FirstName} {employee.LastName}",
+            Email = employee.Email
+        };
+    }
+    public async Task<LoginResponseDto> RefreshTokenAsync(RefreshTokenDto refreshTokenDto, CancellationToken cancellationToken)
+    {
+        var storedToken = await refreshTokenRepository.GetByTokenAsync(refreshTokenDto.RefreshToken, cancellationToken);
+
+        if (storedToken == null)
+            throw new UnauthorizedException("Invalid refresh token.");
+
+        if (storedToken.IsRevoked)
+            throw new UnauthorizedException("Refresh token has been revoked.");
+
+        if (storedToken.ExpiryDate <= DateTime.UtcNow)
+            throw new UnauthorizedException("Refresh token has expired.");
+
+        var employee = storedToken.Employee;
+
+        var newAccessToken = jwtService.GenerateToken(employee);
+
+        var newRefreshToken = refreshTokenService.GenerateRefreshToken();
+
+        storedToken.IsRevoked = true;
+
+        await refreshTokenRepository.UpdateAsync(storedToken, cancellationToken);
+
+        var refreshTokenEntity = new RefreshToken
+        {
+            EmployeeId = employee.Id,
+            Token = newRefreshToken,
+            ExpiryDate = DateTime.UtcNow.AddDays(1),
+            CreatedAt = DateTime.UtcNow,
+            IsRevoked = false
+        };
+
+        await refreshTokenRepository.AddAsync(refreshTokenEntity, cancellationToken);
+
+        await unitOfWork.SaveChangesAsync(cancellationToken);
+
+        return new LoginResponseDto
+        {
+            Token = newAccessToken,
+            RefreshToken = newRefreshToken,
             EmployeeName = $"{employee.FirstName} {employee.LastName}",
             Email = employee.Email
         };

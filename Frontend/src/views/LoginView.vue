@@ -56,6 +56,7 @@ const login = async () => {
   try {
     const response = await Login(form)
     localStorage.setItem('token', response.data.token)
+    localStorage.setItem('refreshToken', response.data.refreshToken)
     router.push('/assets')
   } catch (error) {
     console.log(error)
