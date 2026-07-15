@@ -11,58 +11,58 @@ namespace AssetManagementSystem.API.Controller;
 public class AssetController(IAssetService assetService) : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAllAssetsAsync(CancellationToken cancellationToken)
     {
-        var assets = await assetService.GetAllAssetsWithCategoryAsync(cancellationToken);
+        var result = await assetService.GetAllAssetsWithCategoryAsync(cancellationToken);
 
-        return Ok(assets);
+        return Ok(result);
     }
 
     [HttpGet("{id:guid}")]
-    public async Task<IActionResult> GetAssetById(Guid id, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAssetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
-        var asset = await assetService.GetAssetByIdAsync(id, cancellationToken);
+        var result = await assetService.GetAssetByIdAsync(id, cancellationToken);
 
-        if (asset == null)
+        if (result == null)
             return NotFound();
 
-        return Ok(asset);
+        return Ok(result);
     }
 
     [HttpGet("category/{categoryId:guid}")]
-    public async Task<IActionResult> GetAssetByCategory(Guid categoryId, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAssetByCategoryAsync(Guid categoryId, CancellationToken cancellationToken)
     {
-        var asset = await assetService.GetAssetsByCategoryAsync(categoryId, cancellationToken);
+        var result = await assetService.GetAssetsByCategoryAsync(categoryId, cancellationToken);
 
-        return Ok(asset);
+        return Ok(result);
     }
 
     [HttpGet("available-assets")]
-    public async Task<IActionResult> GetAvailableAssets(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAvailableAssetsAsync(CancellationToken cancellationToken)
     {
-        var asset = await assetService.GetAvailableAssetsAsync(cancellationToken);
+        var result = await assetService.GetAvailableAssetsAsync(cancellationToken);
 
-        return Ok(asset);
+        return Ok(result);
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateAsset(CreateAssetDto createAssetDto, CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateAssetAsync(CreateAssetDto createAssetDto, CancellationToken cancellationToken)
     {
-        var asset = await assetService.CreateAssetAsync(createAssetDto, cancellationToken);
+        var result = await assetService.CreateAssetAsync(createAssetDto, cancellationToken);
 
-        return Ok(asset);
+        return Ok(result);
     }
 
     [HttpPut("{id:guid}")]
-    public async Task<IActionResult> UpdateAsset(Guid id, UpdateAssetDto updateAssetDto, CancellationToken cancellationToken)
+    public async Task<IActionResult> UpdateAssetAsync(Guid id, UpdateAssetDto updateAssetDto, CancellationToken cancellationToken)
     {
-        var asset = await assetService.UpdateAssetAsync(id, updateAssetDto, cancellationToken);
+        var result = await assetService.UpdateAssetAsync(id, updateAssetDto, cancellationToken);
 
-        return Ok(asset);
+        return Ok(result);
     }
 
     [HttpDelete("{id:guid}")]
-    public async Task<IActionResult> DeleteAsset(Guid id, CancellationToken cancellationToken)
+    public async Task<IActionResult> DeleteAssetAsync(Guid id, CancellationToken cancellationToken)
     {
         await assetService.DeleteAssetAsync(id, cancellationToken);
 

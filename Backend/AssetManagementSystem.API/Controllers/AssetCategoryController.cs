@@ -11,10 +11,10 @@ public class AssetCategoryController(IAssetCategoryService assetCategoryService,
     : ControllerBase
 {
     [HttpGet("categories")]
-    public async Task<IActionResult> GetAllCategories()
+    public async Task<IActionResult> GetAllAssetCategoriesAsync()
     {
-        var categories = await assetCategoryService.GetAllAssetCategoriesAsync(cancellationToken);
+        var result = await assetCategoryService.GetAllAssetCategoriesAsync(cancellationToken);
 
-        return Ok(categories);
+        return Ok(result);
     }
 }
