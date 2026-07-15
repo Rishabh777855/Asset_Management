@@ -38,12 +38,16 @@ builder.Services.AddScoped<IAssetCategoryService, AssetCategoryService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 
 //Cors
+var allowedOrigins = builder.Configuration
+    .GetSection("Cors:AllowedOrigins")
+    .Get<string[]>();
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("VuePolicy", policy =>
+    options.AddPolicy("FrontendPolicy", policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173")
+            .WithOrigins(allowedOrigins!)
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -100,7 +104,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("VuePolicy");
+app.UseCors("FrontendPolicy");
 
 app.UseMiddleware<ExceptionMiddleware>();
 

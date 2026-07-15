@@ -20,48 +20,78 @@ const routes = [
     path: '/assets',
     name: 'Assets',
     component: AssetListView,
+    meta: {
+      requiresAuth: true,
+    },
   },
 
   {
     path: '/assets/add',
     name: 'Add Assets',
     component: AddAssetView,
+    meta: {
+      requiresAuth: true,
+    },
   },
 
   {
     path: '/assets/edit/:id',
     name: 'Edit Assets',
     component: EditAssetView,
+    meta: {
+      requiresAuth: true,
+    },
   },
 
   {
     path: '/assets/view/:id',
     name: 'View Asset',
     component: AssetDetailsView,
+    meta: {
+      requiresAuth: true,
+    },
   },
 
   {
     path: '/employees',
     name: 'Employees',
     component: EmployeeListView,
+    meta: {
+      requiresAuth: true,
+    },
   },
 
   {
     path: '/employees/:id/assign-asset',
     name: 'AssignAsset',
     component: AssignAssetView,
+    meta: {
+      requiresAuth: true,
+    },
   },
 
   {
     path: '/employees/:id/assignments',
     name: 'EmployeeAssignment',
     component: EmployeeAssignmentView,
+    meta: {
+      requiresAuth: true,
+    },
   },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+})
+
+router.beforeEach((to) => {
+  const token = localStorage.getItem('token')
+
+  if (to.meta.requiresAuth && !token) {
+    alert("please login first")
+    return '/'
+  }
 })
 
 export default router
