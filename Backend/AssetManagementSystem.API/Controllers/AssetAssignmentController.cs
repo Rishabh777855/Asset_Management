@@ -12,7 +12,7 @@ namespace AssetManagementSystem.API.Controller;
 public class AssetAssignmentController(IAssetAssignmentService assetAssignmentService) : ControllerBase
 {
     [HttpPost("assign")]
-    public async Task<IActionResult> AssignAssets(AssignAssetDto assignAssetDto, CancellationToken cancellationToken)
+    public async Task<IActionResult> AssignAssetsAsync(AssignAssetDto assignAssetDto, CancellationToken cancellationToken)
     {
         await assetAssignmentService.AssignAssetAsync(assignAssetDto, cancellationToken);
 
@@ -20,7 +20,7 @@ public class AssetAssignmentController(IAssetAssignmentService assetAssignmentSe
     }
 
     [HttpPost("return")]
-    public async Task<IActionResult> ReturnAssets(ReturnAssetDto returnAssetDto, CancellationToken cancellationToken)
+    public async Task<IActionResult> ReturnAssetsAsync(ReturnAssetDto returnAssetDto, CancellationToken cancellationToken)
     {
         await assetAssignmentService.ReturnAssetAsync(returnAssetDto, cancellationToken);
 
@@ -28,21 +28,21 @@ public class AssetAssignmentController(IAssetAssignmentService assetAssignmentSe
     }
 
     [HttpGet("employee/{employeeId:guid}")]
-    public async Task<IActionResult> GetEmployeeAsset(Guid employeeId, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetEmployeeAssetsAsync(Guid employeeId, CancellationToken cancellationToken)
     {
-        var asset = await assetAssignmentService.GetEmployeeAssetsAsync(employeeId, cancellationToken);
+        var result = await assetAssignmentService.GetEmployeeAssetsAsync(employeeId, cancellationToken);
 
-        return Ok(asset);
+        return Ok(result);
     }
 
      [HttpGet("current/{assetId:guid}")]
-    public async Task<IActionResult> GetCurrentAssignment(Guid assetId, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetCurrentAssignmentAsync(Guid assetId, CancellationToken cancellationToken)
     {
-        var assignment = await assetAssignmentService.GetCurrentAssignmentAsync(assetId, cancellationToken);
+        var result = await assetAssignmentService.GetCurrentAssignmentAsync(assetId, cancellationToken);
 
-        if (assignment == null)
+        if (result == null)
             return NotFound();
 
-        return Ok(assignment);
+        return Ok(result);
     }
 }
