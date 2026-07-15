@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi;
+using AssetManagementSystem.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,7 @@ builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IAssetRepository, AssetRepository>();
 builder.Services.AddScoped<IAssetAssignmentRepository, AssetAssignmentRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
 //Services
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
@@ -36,6 +38,7 @@ builder.Services.AddScoped<IAssetAssignmentService, AssetAssignmentService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAssetCategoryService, AssetCategoryService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
 
 //Cors
 var allowedOrigins = builder.Configuration

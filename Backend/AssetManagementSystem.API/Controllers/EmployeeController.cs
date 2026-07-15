@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AssetManagementSystem.API.Controller;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 
 public class EmployeeController(IEmployeeService employeeService, IAuthService authService) : ControllerBase
 {
-    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetAllEmployeesAsync(CancellationToken cancellationToken)
     {
@@ -19,7 +19,6 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
         return Ok(result);
     }
 
-    [Authorize]
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetEmployeeByIdAsync(Guid id, CancellationToken cancellationToken)
     {
@@ -28,6 +27,7 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
         return Ok(result);
     }
 
+    [AllowAnonymous]
     [HttpPost("register")]
     public async Task<IActionResult> CreateEmployeeAsync(CreateEmployeeDto createEmployeeDto, CancellationToken cancellationToken)
     {
@@ -36,6 +36,7 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
         return Ok("Employee Created Successfully");
     }
 
+    [AllowAnonymous]
     [HttpPost("login")]
     public async Task<IActionResult> LoginAsync(LoginDto loginDto, CancellationToken cancellationToken)
     {
@@ -44,7 +45,6 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
         return Ok(result);
     }
 
-    [Authorize]
     [HttpPut("{id:guid}")]
     public async Task<IActionResult> UpdateEmployeeAsync(Guid id, UpdateEmployeeDto updateEmployeeDto, CancellationToken cancellationToken)
     {
@@ -53,7 +53,6 @@ public class EmployeeController(IEmployeeService employeeService, IAuthService a
         return Ok("Employee Updated Successfully");
     }
 
-    [Authorize]
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> DeleteEmployeeAsync(Guid id, CancellationToken cancellationToken)
     {
