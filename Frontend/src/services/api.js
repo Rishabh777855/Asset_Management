@@ -41,9 +41,9 @@ api.interceptors.response.use(
         localStorage.removeItem('token')
         localStorage.removeItem('refreshToken')
 
-       // alert('Session expired. Please login again.')
+        alert('Session expired. Please login again.')
 
-       // window.location.href = '/'
+        window.location.href = '/'
 
         return Promise.reject(refreshError)
       }

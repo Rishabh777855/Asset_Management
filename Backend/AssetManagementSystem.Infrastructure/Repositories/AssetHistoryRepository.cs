@@ -12,7 +12,7 @@ public class AssetHistoryRepository(ApplicationDbContext context) : Repository<A
             .Include(h => h.Employee)
             .Include(h => h.Asset)
             .Where(h => h.AssetId == assetId)
-            .OrderBy(h => h.ActionDate)
+            .OrderByDescending(h => h.ActionDate)
             .ToListAsync(cancellationToken);
     }
 }

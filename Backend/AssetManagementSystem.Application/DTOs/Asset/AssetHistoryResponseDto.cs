@@ -12,7 +12,7 @@ public class AssetHistoryResponseDto
 
     public string? EmployeeName { get; set; }
 
-    public DateTime ActionDate { get; set; }
+    public DateOnly ActionDate { get; set; }
 
     public string? Remarks { get; set; }
 }

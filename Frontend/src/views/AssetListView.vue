@@ -11,7 +11,13 @@
       </button>
     </div>
 
-    <AssetGrid :assets="assets" @edit="editAsset" @delete="deleteAsset" @view="viewAsset" />
+    <AssetGrid
+      :assets="assets"
+      @edit="editAsset"
+      @delete="deleteAsset"
+      @view="viewAsset"
+      @history="assetHistory"
+    />
   </div>
 </template>
 
@@ -63,5 +69,9 @@ const deleteAsset = async (id) => {
   } catch (error) {
     console.log('Failed to delete asset', error)
   }
+}
+
+const assetHistory = (id) => {
+  router.push(`/assets/history/${id}`)
 }
 </script>

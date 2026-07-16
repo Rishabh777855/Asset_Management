@@ -8,6 +8,7 @@ import EmployeeListView from '@/views/EmployeeListView.vue'
 import AssignAssetView from '@/views/AssignAssetView.vue'
 import EmployeeAssignmentView from '@/views/EmployeeAssignmentView.vue'
 import LoginView from '@/views/LoginView.vue'
+import AssetHistoryView from '@/views/AssetHistoryView.vue'
 
 const routes = [
   {
@@ -53,6 +54,15 @@ const routes = [
   },
 
   {
+    path: '/assets/history/:id',
+    name: 'AssetHistory',
+    component: AssetHistoryView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+
+  {
     path: '/employees',
     name: 'Employees',
     component: EmployeeListView,
@@ -89,7 +99,7 @@ router.beforeEach((to) => {
   const token = localStorage.getItem('token')
 
   if (to.meta.requiresAuth && !token) {
-    alert("please login first")
+    alert('please login first')
     return '/'
   }
 })

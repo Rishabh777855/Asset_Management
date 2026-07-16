@@ -27,3 +27,7 @@ export function DeleteAsset(id){
 export function GetAvailableAssets(){
   return api.get('/Asset/available-assets')
 }
+
+export function GetAssetHistory(id){
+  return api.get(`/Asset/${id}/history`)
+}
