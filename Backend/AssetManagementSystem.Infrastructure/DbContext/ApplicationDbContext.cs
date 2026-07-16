@@ -18,4 +18,6 @@ public class ApplicationDbContext : DbContext
     public DbSet<AssetAssignment> AssetAssignments { get; set; }
 
     public DbSet<RefreshToken> RefreshTokens { get; set; }
+
+    public DbSet<AssetHistory> AssetHistories { get; set; }
 }
