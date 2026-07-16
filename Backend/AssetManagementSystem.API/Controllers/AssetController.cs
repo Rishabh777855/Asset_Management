@@ -8,7 +8,7 @@ namespace AssetManagementSystem.API.Controller;
 [Authorize]
 [ApiController]
 [Route("api/[controller]")]
-public class AssetController(IAssetService assetService) : ControllerBase
+public class AssetController(IAssetService assetService, IAssetHistoryService assetHistoryService) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> GetAllAssetsAsync(CancellationToken cancellationToken)
@@ -67,5 +67,13 @@ public class AssetController(IAssetService assetService) : ControllerBase
         await assetService.DeleteAssetAsync(id, cancellationToken);
 
         return NoContent();
+    }
+
+    [HttpGet("/assets/{id:guid}/history")]
+    public async Task<IActionResult> GetAssetHistoryAsync(Guid id, CancellationToken cancellationToken)
+    {
+        var result = await assetHistoryService.GetAssetHistoryAsync(id, cancellationToken);
+
+        return Ok(result);
     }
 }

@@ -1,5 +1,6 @@
 using AssetManagementSystem.Application.DTOs;
 using AssetManagementSystem.Domain.Entities;
+using AssetManagementSystem.Domain.Enums;
 
 namespace AssetManagementSystem.Application.Mapper;
 
@@ -18,6 +19,21 @@ public static class AssetHistoryMapper
                 : string.Empty,
             ActionDate = history.ActionDate,
             Remarks = history.Remarks
+        };
+    }
+    public static AssetHistory ToEntity(
+        Guid assetId,
+        Guid? employeeId,
+        AssetHistoryType historyType,
+        string? remarks)
+    {
+        return new AssetHistory
+        {
+            AssetId = assetId,
+            EmployeeId = employeeId,
+            HistoryType = historyType,
+            ActionDate = DateTime.UtcNow,
+            Remarks = remarks
         };
     }
 }

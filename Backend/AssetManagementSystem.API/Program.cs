@@ -40,6 +40,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAssetCategoryService, AssetCategoryService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+builder.Services.AddScoped<IAssetHistoryService, AssetHistoryService>();
 
 //Cors
 var allowedOrigins = builder.Configuration
@@ -78,24 +79,24 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "My API",
-        Version = "v1"
-    });
+   options.SwaggerDoc("v1", new OpenApiInfo
+   {
+       Title = "My API",
+       Version = "v1"
+   });
 
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Type = SecuritySchemeType.Http,
-        Scheme = "bearer",
-        BearerFormat = "JWT",
-        Description = "Enter your JWT token"
-    });
+   options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+   {
+       Type = SecuritySchemeType.Http,
+       Scheme = "bearer",
+       BearerFormat = "JWT",
+       Description = "Enter your JWT token"
+   });
 
-    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
-    {
-        [new OpenApiSecuritySchemeReference("Bearer", document)] = []
-    });
+   options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+   {
+       [new OpenApiSecuritySchemeReference("Bearer", document)] = []
+   });
 });
 
 var app = builder.Build();
