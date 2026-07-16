@@ -1,3 +1,4 @@
+using System.Collections;
 using AssetManagementSystem.Domain.Entities;
 using AssetManagementSystem.Domain.Enums;
 using AssetManagementSystem.Domain.Interfaces;
@@ -25,6 +26,17 @@ public class AssetAssignmentRepository(ApplicationDbContext context) : Repositor
             .Include(a => a.Asset)
                  .ThenInclude(a => a.AssetCategory)
             .Where(a => a.EmployeeId == employeeId)
+            .OrderByDescending(a => a.AssignedDate)
+            .ToListAsync(cancellationToken);
+    }
+
+    public async Task<IEnumerable<AssetAssignment>> GetAllActiveAssignmentAsync(CancellationToken cancellationToken)
+    {
+        return await context.AssetAssignments
+            .Include(a => a.Employee)
+            .Include(a => a.Asset)
+                .ThenInclude(a => a.AssetCategory)
+             .Where(a => a.Status == AssignmentStatus.Active)
             .ToListAsync(cancellationToken);
     }
 }

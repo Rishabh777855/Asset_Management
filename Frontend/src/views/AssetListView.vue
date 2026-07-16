@@ -4,6 +4,13 @@
       <h1 class="text-3xl font-bold">Assets</h1>
 
       <button
+        @click="activeAssignment"
+        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 bg- mr-2"
+      >
+        View Active Assignments
+      </button>
+
+      <button
         @click="addAsset"
         class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 bg-"
       >
@@ -73,5 +80,9 @@ const deleteAsset = async (id) => {
 
 const assetHistory = (id) => {
   router.push(`/assets/history/${id}`)
+}
+
+const activeAssignment = () => {
+  router.push('/assets/assetAssignments')
 }
 </script>

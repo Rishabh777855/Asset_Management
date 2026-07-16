@@ -11,4 +11,6 @@ public interface IAssetAssignmentService
     Task<IEnumerable<AssetAssignmentResponseDto>> GetEmployeeAssetsAsync(Guid employeeId, CancellationToken cancellationToken);
 
     Task<AssetAssignmentResponseDto?> GetCurrentAssignmentAsync(Guid assetId, CancellationToken cancellationToken);
+
+    Task<IEnumerable<AssetAssignmentResponseDto?>> GetAllActiveAssignmentsAsync(CancellationToken cancellationToken);
 }

@@ -45,4 +45,13 @@ public class AssetAssignmentController(IAssetAssignmentService assetAssignmentSe
 
         return Ok(result);
     }
+
+    [Authorize]
+    [HttpGet("activeAssignments")]
+    public async Task<IActionResult> GetAllActiveAssignments(CancellationToken cancellationToken)
+    {
+        var result = await assetAssignmentService.GetAllActiveAssignmentsAsync(cancellationToken);
+
+        return Ok(result);
+    }
 }
