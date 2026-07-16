@@ -81,4 +81,11 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
 
         return AssetAssignmentMapper.ToResponseDto(assignment);
     }
+
+    public async Task<IEnumerable<AssetAssignmentResponseDto?>> GetAllActiveAssignmentsAsync(CancellationToken cancellationToken)
+    {
+        var assignments = await assignmentRepository.GetAllActiveAssignmentAsync(cancellationToken);
+
+        return assignments.Select(AssetAssignmentMapper.ToResponseDto);
+    }
 }

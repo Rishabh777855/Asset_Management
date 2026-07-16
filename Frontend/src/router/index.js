@@ -9,6 +9,7 @@ import AssignAssetView from '@/views/AssignAssetView.vue'
 import EmployeeAssignmentView from '@/views/EmployeeAssignmentView.vue'
 import LoginView from '@/views/LoginView.vue'
 import AssetHistoryView from '@/views/AssetHistoryView.vue'
+import AssetAssignmetView from '@/views/AssetAssignmetView.vue'
 
 const routes = [
   {
@@ -57,6 +58,15 @@ const routes = [
     path: '/assets/history/:id',
     name: 'AssetHistory',
     component: AssetHistoryView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+
+  {
+    path: '/assets/assetAssignments',
+    name: 'AssetAssignment',
+    component: AssetAssignmetView,
     meta: {
       requiresAuth: true,
     },

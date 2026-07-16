@@ -7,3 +7,7 @@ export function AssignAsset(asset) {
 export function GetEmployeeAssignment(id){
     return api.get(`/AssetAssignment/employee/${id}`)
 }
+
+export function GetAllActiveAssignments(){
+    return api.get('/AssetAssignment/activeAssignments')
+}
