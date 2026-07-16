@@ -69,7 +69,7 @@ public class AssetController(IAssetService assetService, IAssetHistoryService as
         return NoContent();
     }
 
-    [HttpGet("/assets/{id:guid}/history")]
+    [HttpGet("{id:guid}/history")]
     public async Task<IActionResult> GetAssetHistoryAsync(Guid id, CancellationToken cancellationToken)
     {
         var result = await assetHistoryService.GetAssetHistoryAsync(id, cancellationToken);

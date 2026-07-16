@@ -32,7 +32,7 @@ public static class AssetHistoryMapper
             AssetId = assetId,
             EmployeeId = employeeId,
             HistoryType = historyType,
-            ActionDate = DateTime.UtcNow,
+            ActionDate = DateOnly.FromDateTime(DateTime.UtcNow),
             Remarks = remarks
         };
     }

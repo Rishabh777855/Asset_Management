@@ -12,7 +12,7 @@ public class AssetHistory
 
     public Guid? EmployeeId { get; set; }
 
-    public DateTime ActionDate { get; set; }
+    public DateOnly ActionDate { get; set; }
 
     public string? Remarks { get; set; }
 

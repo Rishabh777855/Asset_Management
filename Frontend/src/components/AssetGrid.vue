@@ -49,9 +49,16 @@
 
             <button
               @click="$emit('delete', asset.id)"
-              class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
+              class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded mr-2"
             >
               Delete
+            </button>
+
+            <button
+              @click="$emit('history', asset.id)"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded mr-2"
+            >
+              History
             </button>
           </td>
         </tr>
@@ -72,5 +79,5 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['view', 'edit', 'delete'])
+const emit = defineEmits(['view', 'edit', 'delete', 'history'])
 </script>
