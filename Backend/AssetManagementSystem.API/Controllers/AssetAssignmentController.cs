@@ -48,9 +48,9 @@ public class AssetAssignmentController(IAssetAssignmentService assetAssignmentSe
 
     [Authorize]
     [HttpGet("activeAssignments")]
-    public async Task<IActionResult> GetAllActiveAssignments(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAllActiveAssignments(AssetAssignmentFilterDto assetAssignmentFilterDto, CancellationToken cancellationToken)
     {
-        var result = await assetAssignmentService.GetAllActiveAssignmentsAsync(cancellationToken);
+        var result = await assetAssignmentService.GetAllActiveAssignmentsAsync(assetAssignmentFilterDto, cancellationToken);
 
         return Ok(result);
     }

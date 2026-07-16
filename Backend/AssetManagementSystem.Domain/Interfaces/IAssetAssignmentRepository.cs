@@ -8,5 +8,5 @@ public interface IAssetAssignmentRepository : IRepository<AssetAssignment>
 
     Task<IEnumerable<AssetAssignment>> GetEmployeeAssignmentsAsync(Guid employeeId, CancellationToken cancellationToken);
 
-    Task<IEnumerable<AssetAssignment>> GetAllActiveAssignmentAsync(CancellationToken cancellationToken);
+    IQueryable<AssetAssignment> GetAllActiveAssignments();
 }

@@ -41,6 +41,7 @@ builder.Services.AddScoped<IAssetCategoryService, AssetCategoryService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
 builder.Services.AddScoped<IAssetHistoryService, AssetHistoryService>();
+builder.Services.AddScoped<Filter>();
 
 //Cors
 var allowedOrigins = builder.Configuration
