@@ -7,11 +7,10 @@ namespace AssetManagementSystem.Infrastructure.Repositories;
 
 public class AssetRepository(ApplicationDbContext context) : Repository<Asset>(context), IAssetRepository
 {
-     public async Task<IEnumerable<Asset>> GetAllAssetsWithCategoryAsync(CancellationToken cancellationToken)
+     public IQueryable<Asset> GetAllAssetsWithCategoryAsync()
     {
-        return await context.Assets
-            .Include(a => a.AssetCategory)
-            .ToListAsync(cancellationToken);
+        return context.Assets
+            .Include(a => a.AssetCategory);
     }
 
     public async Task<IEnumerable<Asset>> GetAvailableAssetsAsync(CancellationToken cancellationToken)

@@ -20,6 +20,7 @@
 
     <AssetGrid
       :assets="assets"
+      :filter="filter"
       @edit="editAsset"
       @delete="deleteAsset"
       @view="viewAsset"
@@ -30,7 +31,8 @@
 
 <script setup>
 import { GetAssets, DeleteAsset } from '@/services/assetService'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, reactive } from 'vue'
+import { watchDebounced } from '@vueuse/core'
 import { useRouter } from 'vue-router'
 import AssetGrid from '@/components/AssetGrid.vue'
 
@@ -38,9 +40,17 @@ const router = useRouter()
 
 const assets = ref([])
 
+const filter = reactive({
+  assetCode: "",
+  assetName: "",
+  brand:"",
+  model:"",
+  categoryName: ""
+});
+
 const loadAssets = async () => {
   try {
-    const response = await GetAssets()
+    const response = await GetAssets(filter)
     assets.value = response.data
   } catch (error) {
     console.log(error)
@@ -50,6 +60,18 @@ const loadAssets = async () => {
 onMounted(() => {
   loadAssets()
 })
+
+watchDebounced(
+  filter,
+  () => {
+    loadAssets()
+  },
+
+  {
+    debounce: 300,
+    deep: true,
+  },
+)
 
 const addAsset = () => {
   router.push('/assets/add')

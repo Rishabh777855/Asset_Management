@@ -11,9 +11,9 @@ namespace AssetManagementSystem.API.Controller;
 public class AssetController(IAssetService assetService, IAssetHistoryService assetHistoryService) : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> GetAllAssetsAsync(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAllAssetsAsync([FromQuery] AssetFilterDto assetFilterDto, CancellationToken cancellationToken)
     {
-        var result = await assetService.GetAllAssetsWithCategoryAsync(cancellationToken);
+        var result = await assetService.GetAllAssetsWithCategoryAsync(assetFilterDto, cancellationToken);
 
         return Ok(result);
     }

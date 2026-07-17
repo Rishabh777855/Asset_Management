@@ -4,7 +4,7 @@ namespace AssetManagementSystem.Domain.Interfaces;
 
 public interface IAssetRepository : IRepository<Asset>
 {
-    Task<IEnumerable<Asset>> GetAllAssetsWithCategoryAsync(CancellationToken cancellationToken);
+    IQueryable<Asset> GetAllAssetsWithCategoryAsync();
 
     Task<IEnumerable<Asset>> GetAvailableAssetsAsync(CancellationToken cancellationToken);
 

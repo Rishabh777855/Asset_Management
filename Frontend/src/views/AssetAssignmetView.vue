@@ -29,40 +29,41 @@
             <th class="px-6 py-3 text-left">Status</th>
           </tr>
           <tr class="bg-white">
-            <th>
+            <th class="px-4 py-2">
               <input
                 v-model="filter.employeeName"
+                type="text"
                 placeholder="Search..."
-                class="w-full border rounded px-2 py-1"
+                class="w-full border rounded px-2 py-1 text-sm"
               />
             </th>
 
-            <th>
+            <th class="px-4 py-2">
               <input
                 v-model="filter.assetCode"
                 placeholder="Search..."
-                class="w-full border rounded px-2 py-1"
+                class="w-full border rounded px-2 py-1 text-sm"
               />
             </th>
 
-            <th>
+            <th class="px-4 py-2">
               <input
                 v-model="filter.assetName"
                 placeholder="Search..."
-                class="w-full border rounded px-2 py-1"
+                class="w-full border rounded px-2 py-1 text-sm"
               />
             </th>
 
-            <th>
+            <th class="px-4 py-2">
               <input
                 type="date"
                 v-model="filter.assignedDate"
-                class="w-full border rounded px-2 py-1"
+                class="w-full border rounded px-2 py-1 text-sm"
               />
             </th>
 
-            <th>
-              <select v-model="filter.status" class="w-full border rounded px-2 py-1">
+            <th class="px-4 py-2">
+              <select v-model="filter.status" class="w-full border rounded px-2 py-1 text-sm">
                 <option value="">All</option>
                 <option value="Active">Active</option>
                 <option value="Returned">Returned</option>
@@ -162,8 +163,8 @@ const resetFilters = () => {
     assetName: '',
     assignedDate: '',
     status: '',
-  });
+  })
 
-  loadAssetAssignments();
-};
+  loadAssetAssignments()
+}
 </script>

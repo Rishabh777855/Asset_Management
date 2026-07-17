@@ -4,7 +4,7 @@ namespace AssetManagementSystem.Application.Interfaces;
 
 public interface IAssetService
 {
-    Task<IEnumerable<AssetResponseDto>> GetAllAssetsWithCategoryAsync(CancellationToken cancellationToken);
+    Task<IEnumerable<AssetResponseDto>> GetAllAssetsWithCategoryAsync(AssetFilterDto assetFilterDto, CancellationToken cancellationToken);
 
     Task<AssetResponseDto?> GetAssetByIdAsync(Guid id, CancellationToken cancellationToken);
 
