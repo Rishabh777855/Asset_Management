@@ -21,6 +21,47 @@
             <th class="px-6 py-3 text-left">Assigned Date</th>
             <th class="px-6 py-3 text-left">Status</th>
           </tr>
+          <tr class="bg-white">
+            <th>
+              <input
+                v-model="filter.employeeName"
+                placeholder="Search..."
+                class="w-full border rounded px-2 py-1"
+              />
+            </th>
+
+            <th>
+              <input
+                v-model="filter.assetCode"
+                placeholder="Search..."
+                class="w-full border rounded px-2 py-1"
+              />
+            </th>
+
+            <th>
+              <input
+                v-model="filter.assetName"
+                placeholder="Search..."
+                class="w-full border rounded px-2 py-1"
+              />
+            </th>
+
+            <th>
+              <input
+                type="date"
+                v-model="filter.assignedDate"
+                class="w-full border rounded px-2 py-1"
+              />
+            </th>
+
+            <th>
+              <select v-model="filter.status" class="w-full border rounded px-2 py-1">
+                <option value="">All</option>
+                <option value="Active">Active</option>
+                <option value="Returned">Returned</option>
+              </select>
+            </th>
+          </tr>
         </thead>
 
         <tbody class="divide-y divide-gray-200">
@@ -66,16 +107,25 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { ref, onMounted } from 'vue'
+import { ref, reactive, onMounted, watch } from 'vue'
 import { GetAllActiveAssignments } from '@/services/assetAssignmentService'
+import { watchDebounced } from '@vueuse/core'
 
 const router = useRouter()
 
 const assignments = ref([])
 
+const filter = reactive({
+  employeeName: '',
+  assetCode: '',
+  assetName: '',
+  assignedDate: '',
+  status: '',
+})
+
 const loadAssetAssignments = async () => {
   try {
-    const response = await GetAllActiveAssignments()
+    const response = await GetAllActiveAssignments(filter)
     assignments.value = response.data
   } catch (error) {
     console.error('Error fetching asset assignments:', error)
@@ -85,4 +135,16 @@ const loadAssetAssignments = async () => {
 onMounted(() => {
   loadAssetAssignments()
 })
+
+watchDebounced(
+  filter,
+  () => {
+    loadAssetAssignments()
+  },
+
+  {
+    debounce: 300,
+    deep: true,
+  },
+)
 </script>

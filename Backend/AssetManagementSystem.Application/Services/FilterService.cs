@@ -4,13 +4,13 @@ using AssetManagementSystem.Domain.Entities;
 
 namespace AssetManagementSystem.Application.Services;
 
-public class AssetAssignmentFilterService : IFilterService
+public class FilterService : IFilterService
 {
-    public IQueryable<AssetAssignment> ApplyFiltersForAssetAssignment(IQueryable<AssetAssignment> query, AssetAssignmentFilterDto filter)
+    public IQueryable<AssetAssignment> ApplyFiltersForAssetAssignment(IQueryable<AssetAssignment> query, AssetAssignmentFilterDto assetAssignmentFilterDto)
     {
-        if (!string.IsNullOrWhiteSpace(filter.Search))
+        if (!string.IsNullOrWhiteSpace(assetAssignmentFilterDto.Search))
         {
-            var search = filter.Search.Trim();
+            var search = assetAssignmentFilterDto.Search.Trim();
 
             query = query.Where(a =>
                 a.Employee.FirstName.Contains(search) ||
@@ -20,35 +20,35 @@ public class AssetAssignmentFilterService : IFilterService
                 a.Asset.AssetCategory.Name.Contains(search));
         }
 
-        if (!string.IsNullOrWhiteSpace(filter.EmployeeName))
+        if (!string.IsNullOrWhiteSpace(assetAssignmentFilterDto.EmployeeName))
         {
             query = query.Where(a =>
                 (a.Employee.FirstName + " " + a.Employee.LastName)
-                .Contains(filter.EmployeeName));
+                .Contains(assetAssignmentFilterDto.EmployeeName));
         }
 
-        if (!string.IsNullOrWhiteSpace(filter.AssetCode))
+        if (!string.IsNullOrWhiteSpace(assetAssignmentFilterDto.AssetCode))
         {
             query = query.Where(a =>
-                a.Asset.AssetCode.Contains(filter.AssetCode));
+                a.Asset.AssetCode.Contains(assetAssignmentFilterDto.AssetCode));
         }
 
-        if (!string.IsNullOrWhiteSpace(filter.AssetName))
+        if (!string.IsNullOrWhiteSpace(assetAssignmentFilterDto.AssetName))
         {
             query = query.Where(a =>
-                a.Asset.Name.Contains(filter.AssetName));
+                a.Asset.Name.Contains(assetAssignmentFilterDto.AssetName));
         }
 
-        if (filter.Status.HasValue)
+        if (assetAssignmentFilterDto.Status.HasValue)
         {
             query = query.Where(a =>
-                a.Status == filter.Status.Value);
+                a.Status == assetAssignmentFilterDto.Status.Value);
         }
 
-        if (filter.AssignedDate.HasValue)
+        if (assetAssignmentFilterDto.AssignedDate.HasValue)
         {
             query = query.Where(a =>
-                a.AssignedDate == filter.AssignedDate.Value);
+                a.AssignedDate == assetAssignmentFilterDto.AssignedDate.Value);
         }
 
         return query;
