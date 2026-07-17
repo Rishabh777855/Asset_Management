@@ -1,10 +1,12 @@
 import api from './api'
 
-export function GetAssets() {
-  return api.get('/Asset')
+export const GetAssets = (filter) => {
+  return api.get('/Asset', {
+      params: filter,
+  })
 }
 
-export function GetAssetsById(id){
+export function GetAssetsById(id) {
   return api.get(`/Asset/${id}`)
 }
 
@@ -20,14 +22,14 @@ export function UpdateAssets(id, asset) {
   return api.put(`Asset/${id}`, asset)
 }
 
-export function DeleteAsset(id){
+export function DeleteAsset(id) {
   return api.delete(`Asset/${id}`)
 }
 
-export function GetAvailableAssets(){
+export function GetAvailableAssets() {
   return api.get('/Asset/available-assets')
 }
 
-export function GetAssetHistory(id){
+export function GetAssetHistory(id) {
   return api.get(`/Asset/${id}/history`)
 }

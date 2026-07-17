@@ -5,14 +5,19 @@ using AssetManagementSystem.Application.Mappers;
 using AssetManagementSystem.Domain.Entities;
 using AssetManagementSystem.Domain.Enums;
 using AssetManagementSystem.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace AssetManagementSystem.Application.Services;
 
-public class AssetService(IAssetRepository assetRepository, IRepository<AssetCategory> categoryRepository, IUnitOfWork unitOfWork) : IAssetService
+public class AssetService(IAssetRepository assetRepository, IRepository<AssetCategory> categoryRepository, IUnitOfWork unitOfWork, IFilterService filterService) : IAssetService
 {
-    public async Task<IEnumerable<AssetResponseDto>> GetAllAssetsWithCategoryAsync(CancellationToken cancellationToken)
+    public async Task<IEnumerable<AssetResponseDto>> GetAllAssetsWithCategoryAsync(AssetFilterDto assetFilterDto, CancellationToken cancellationToken)
     {
-        var assets = await assetRepository.GetAllAssetsWithCategoryAsync(cancellationToken);
+        var query = assetRepository.GetAllAssetsWithCategoryAsync();
+
+        query = filterService.ApplyFiltersForAsset(query, assetFilterDto);
+
+        var assets = await query.ToListAsync(cancellationToken);
 
         return assets.Select(AssetMapper.ToResponseDto);
     }
