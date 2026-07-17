@@ -36,6 +36,7 @@ public class AssetAssignmentRepository(ApplicationDbContext context) : Repositor
             .Include(a => a.Employee)
             .Include(a => a.Asset)
                 .ThenInclude(a => a.AssetCategory)
-             .Where(a => a.Status == AssignmentStatus.Active);
+            .Where(a => a.Status == AssignmentStatus.Active)
+            .OrderByDescending(a => a.AssignedDate);
     }
 }

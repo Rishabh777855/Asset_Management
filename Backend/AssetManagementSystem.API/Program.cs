@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi;
 using AssetManagementSystem.Infrastructure.Services;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -80,24 +81,24 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
 {
-   options.SwaggerDoc("v1", new OpenApiInfo
-   {
-       Title = "My API",
-       Version = "v1"
-   });
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "My API",
+        Version = "v1"
+    });
 
-   options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-   {
-       Type = SecuritySchemeType.Http,
-       Scheme = "bearer",
-       BearerFormat = "JWT",
-       Description = "Enter your JWT token"
-   });
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        Description = "Enter your JWT token"
+    });
 
-   options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
-   {
-       [new OpenApiSecuritySchemeReference("Bearer", document)] = []
-   });
+    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+    {
+        [new OpenApiSecuritySchemeReference("Bearer", document)] = []
+    });
 });
 
 var app = builder.Build();
@@ -105,8 +106,14 @@ var app = builder.Build();
 // Configure Middleware
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseSwagger(options =>
+    {
+        options.RouteTemplate = "openapi/{documentName}.json";
+    });
+
     app.UseSwaggerUI();
+
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();

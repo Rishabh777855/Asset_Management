@@ -51,6 +51,9 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
         if (assignment == null)
             throw new NotFoundException("No active assignment found.");
 
+        if (returnAssetDto.ReturnDate < assignment.AssignedDate)
+            throw new BadRequestException("Return date cannot be before assigned date.");
+
         assignment.ReturnDate = returnAssetDto.ReturnDate;
         assignment.Status = AssignmentStatus.Returned;
         assignment.Remarks = returnAssetDto.Remarks;

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xN6y4OTl2k4=",
+  "dgSpecHash": "hHNS2nAtLcI=",
   "success": true,
   "projectFilePath": "D:\\Rishabh\\Asset_Management_3\\Asset_Management\\Backend\\AssetManagementSystem.API\\AssetManagementSystem.API.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\microsoft.visualstudio.solutionpersistence\\1.0.52\\microsoft.visualstudio.solutionpersistence.1.0.52.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Shrey Shah\\.nuget\\packages\\scalar.aspnetcore\\2.16.15\\scalar.aspnetcore.2.16.15.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\swashbuckle.aspnetcore\\10.2.3\\swashbuckle.aspnetcore.10.2.3.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\10.2.3\\swashbuckle.aspnetcore.swagger.10.2.3.nupkg.sha512",
     "C:\\Users\\Shrey Shah\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\10.2.3\\swashbuckle.aspnetcore.swaggergen.10.2.3.nupkg.sha512",

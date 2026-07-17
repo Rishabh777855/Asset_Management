@@ -9,6 +9,13 @@
       >
         Back
       </button>
+
+      <button
+        @click="resetFilters()"
+        class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg"
+      >
+        Reset Filters
+      </button>
     </div>
 
     <div class="overflow-x-auto bg-white shadow rounded-lg">
@@ -147,4 +154,16 @@ watchDebounced(
     deep: true,
   },
 )
+
+const resetFilters = () => {
+  Object.assign(filter, {
+    employeeName: '',
+    assetCode: '',
+    assetName: '',
+    assignedDate: '',
+    status: '',
+  });
+
+  loadAssetAssignments();
+};
 </script>
