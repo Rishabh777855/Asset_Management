@@ -1,4 +1,5 @@
 using AssetManagementSystem.Application.DTOs.AssetAssignment;
+using AssetManagementSystem.Application.DTOs.Common;
 using AssetManagementSystem.Application.Exceptions;
 using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Application.Mapper;
@@ -86,14 +87,30 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
         return AssetAssignmentMapper.ToResponseDto(assignment);
     }
 
-    public async Task<IEnumerable<AssetAssignmentResponseDto?>> GetAllActiveAssignmentsAsync(AssetAssignmentFilterDto assetAssignmentFilterDto, CancellationToken cancellationToken)
+    public async Task<PagedResponse<AssetAssignmentResponseDto?>> GetAllActiveAssignmentsAsync(AssetAssignmentFilterDto assetAssignmentFilterDto, CancellationToken cancellationToken)
     {
         var query = assignmentRepository.GetAllActiveAssignments();
 
         query = filterService.ApplyFiltersForAssetAssignment(query, assetAssignmentFilterDto);
 
+        var totalRecords = await query.CountAsync(cancellationToken);
+
+        query = filterService.ApplyPagination(query, assetAssignmentFilterDto);
+
         var assignments = await query.ToListAsync(cancellationToken);
 
-        return assignments.Select(AssetAssignmentMapper.ToResponseDto);
+        return new PagedResponse<AssetAssignmentResponseDto?>
+        {
+            Data = assignments.Select(AssetAssignmentMapper.ToResponseDto),
+
+            PageNumber = assetAssignmentFilterDto.PageNumber,
+
+            PageSize = assetAssignmentFilterDto.PageSize,
+
+            TotalRecords = totalRecords,
+
+            TotalPages = (int)Math.Ceiling(
+            totalRecords / (double)assetAssignmentFilterDto.PageSize)
+        };
     }
 }

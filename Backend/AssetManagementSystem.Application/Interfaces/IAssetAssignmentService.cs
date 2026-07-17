@@ -1,4 +1,5 @@
 using AssetManagementSystem.Application.DTOs.AssetAssignment;
+using AssetManagementSystem.Application.DTOs.Common;
 
 namespace AssetManagementSystem.Application.Interfaces;
 
@@ -12,5 +13,5 @@ public interface IAssetAssignmentService
 
     Task<AssetAssignmentResponseDto?> GetCurrentAssignmentAsync(Guid assetId, CancellationToken cancellationToken);
 
-    Task<IEnumerable<AssetAssignmentResponseDto?>> GetAllActiveAssignmentsAsync(AssetAssignmentFilterDto assetAssignmentFilterDto, CancellationToken cancellationToken);
+    Task<PagedResponse<AssetAssignmentResponseDto?>> GetAllActiveAssignmentsAsync(AssetAssignmentFilterDto assetAssignmentFilterDto, CancellationToken cancellationToken);
 }

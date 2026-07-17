@@ -1,5 +1,6 @@
 using AssetManagementSystem.Application.DTOs.Asset;
 using AssetManagementSystem.Application.DTOs.AssetAssignment;
+using AssetManagementSystem.Application.DTOs.Common;
 using AssetManagementSystem.Application.Interfaces;
 using AssetManagementSystem.Domain.Entities;
 
@@ -100,5 +101,12 @@ public class FilterService : IFilterService
         }
 
         return query;
+    }
+
+    public IQueryable<T> ApplyPagination<T>(IQueryable<T> query, QueryFilter filter)
+    {
+        return query
+            .Skip((filter.PageNumber - 1) * filter.PageSize)
+            .Take(filter.PageSize);
     }
 }
