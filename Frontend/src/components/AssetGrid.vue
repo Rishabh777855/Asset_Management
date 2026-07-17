@@ -7,6 +7,7 @@
           <th class="px-6 py-3 text-left">Name</th>
           <th class="px-6 py-3 text-left">Brand</th>
           <th class="px-6 py-3 text-left">Model</th>
+          <th class="px-6 py-3 text-left">Category</th>
           <th class="px-6 py-3 text-left">Purchase Price</th>
           <th class="px-6 py-3 text-center">Actions</th>
         </tr>
@@ -28,6 +29,10 @@
 
           <td class="px-6 py-4">
             {{ asset.model }}
+          </td>
+
+          <td class="px-6 py-4">
+            {{ asset.categoryName }}
           </td>
 
           <td class="px-6 py-4">₹ {{ asset.purchasePrice }}</td>

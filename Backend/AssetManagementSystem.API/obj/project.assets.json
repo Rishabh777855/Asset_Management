@@ -1169,7 +1169,8 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "AssetManagementSystem.Domain": "1.0.0",
-          "BCrypt.Net-Next": "4.2.0"
+          "BCrypt.Net-Next": "4.2.0",
+          "Microsoft.EntityFrameworkCore": "10.0.9"
         },
         "compile": {
           "bin/placeholder/AssetManagementSystem.Application.dll": {}

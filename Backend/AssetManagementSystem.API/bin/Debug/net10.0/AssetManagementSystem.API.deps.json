@@ -830,7 +830,8 @@
       "AssetManagementSystem.Application/1.0.0": {
         "dependencies": {
           "AssetManagementSystem.Domain": "1.0.0",
-          "BCrypt.Net-Next": "4.2.0"
+          "BCrypt.Net-Next": "4.2.0",
+          "Microsoft.EntityFrameworkCore": "10.0.9"
         },
         "runtime": {
           "AssetManagementSystem.Application.dll": {

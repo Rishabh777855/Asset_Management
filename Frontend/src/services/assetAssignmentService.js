@@ -8,6 +8,8 @@ export function GetEmployeeAssignment(id){
     return api.get(`/AssetAssignment/employee/${id}`)
 }
 
-export function GetAllActiveAssignments(){
-    return api.get('/AssetAssignment/activeAssignments')
+export const GetAllActiveAssignments = (filter) => {
+    return api.get('/AssetAssignment/activeAssignments' ,{
+        params: filter,
+    })
 }

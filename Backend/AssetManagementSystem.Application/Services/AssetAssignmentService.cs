@@ -5,10 +5,11 @@ using AssetManagementSystem.Application.Mapper;
 using AssetManagementSystem.Application.Mappers;
 using AssetManagementSystem.Domain.Enums;
 using AssetManagementSystem.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace AssetManagementSystem.Application.Services;
 
-public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeRepository employeeRepository, IAssetAssignmentRepository assignmentRepository, IAssetHistoryRepository assetHistoryRepository, IUnitOfWork unitOfWork) : IAssetAssignmentService
+public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeRepository employeeRepository, IAssetAssignmentRepository assignmentRepository, IAssetHistoryRepository assetHistoryRepository, IUnitOfWork unitOfWork, IFilterService filterService) : IAssetAssignmentService
 {
     public async Task AssignAssetAsync(AssignAssetDto assignAssetDto, CancellationToken cancellationToken)
     {
@@ -82,9 +83,13 @@ public class AssetAssignmentService(IAssetRepository assetRepository, IEmployeeR
         return AssetAssignmentMapper.ToResponseDto(assignment);
     }
 
-    public async Task<IEnumerable<AssetAssignmentResponseDto?>> GetAllActiveAssignmentsAsync(CancellationToken cancellationToken)
+    public async Task<IEnumerable<AssetAssignmentResponseDto?>> GetAllActiveAssignmentsAsync(AssetAssignmentFilterDto assetAssignmentFilterDto, CancellationToken cancellationToken)
     {
-        var assignments = await assignmentRepository.GetAllActiveAssignmentAsync(cancellationToken);
+        var query = assignmentRepository.GetAllActiveAssignments();
+
+        query = filterService.ApplyFiltersForAssetAssignment(query, assetAssignmentFilterDto);
+
+        var assignments = await query.ToListAsync(cancellationToken);
 
         return assignments.Select(AssetAssignmentMapper.ToResponseDto);
     }
