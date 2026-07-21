@@ -111,13 +111,41 @@
       </table>
     </div>
   </div>
+
+  <div class="flex items-center justify-between mt-4">
+    <span>
+      Page {{ pagination.pageNumber }} of {{ pagination.totalPages }} ({{ pagination.totalRecords }}
+      Records)
+    </span>
+
+    <div class="flex gap-2">
+      <button
+        @click="previousPage"
+        :disabled="!pagination.hasPreviousPage"
+        class="px-4 py-2 rounded bg-gray-200 disabled:opacity-50"
+      >
+        Previous
+      </button>
+
+      <button
+        @click="nextPage"
+        :disabled="!pagination.hasNextPage"
+        class="px-4 py-2 rounded bg-gray-200 disabled:opacity-50"
+      >
+        Next
+      </button>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { ref, reactive, onMounted, watch } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { GetAllActiveAssignments } from '@/services/assetAssignmentService'
 import { watchDebounced } from '@vueuse/core'
+import { usePagination } from '@/composables/usePagination'
+
+const { pagination, updatePagination, resetPage } = usePagination()
 
 const router = useRouter()
 
@@ -133,11 +161,31 @@ const filter = reactive({
 
 const loadAssetAssignments = async () => {
   try {
-    const response = await GetAllActiveAssignments(filter)
-    assignments.value = response.data
+    const response = await GetAllActiveAssignments({
+      ...filter,
+      pageNumber: pagination.pageNumber,
+      pageSize: pagination.pageSize,
+    })
+    assignments.value = response.data.data
+
+    updatePagination(response.data)
   } catch (error) {
     console.error('Error fetching asset assignments:', error)
   }
+}
+
+const previousPage = () => {
+  if (!pagination.hasPreviousPage) return
+
+  pagination.pageNumber--
+  loadAssetAssignments()
+}
+
+const nextPage = () => {
+  if (!pagination.hasNextPage) return
+
+  pagination.pageNumber++
+  loadAssetAssignments()
 }
 
 onMounted(() => {
@@ -147,6 +195,7 @@ onMounted(() => {
 watchDebounced(
   filter,
   () => {
+    resetPage()
     loadAssetAssignments()
   },
 
